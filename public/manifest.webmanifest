@@ -1,0 +1,17 @@
+{
+  "name": "SatuJanji",
+  "short_name": "SatuJanji",
+  "description": "Website undangan pernikahan digital yang elegan, modern, dan mudah dibagikan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8F0",
+  "theme_color": "#B68D40",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "120x120",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
