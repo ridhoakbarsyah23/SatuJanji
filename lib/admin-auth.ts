@@ -15,11 +15,16 @@ export function getAdminCredentials() {
     email: (process.env.ADMIN_EMAIL ?? (useFallback ? fallbackAdmin.email : ""))
       .trim()
       .toLowerCase(),
-    passwordHash:
+    passwordHash: normalizePasswordHash(
       process.env.ADMIN_PASSWORD_HASH ?? (useFallback ? fallbackAdmin.passwordHash : ""),
+    ),
     sessionSecret:
       process.env.ADMIN_SESSION_SECRET ?? (useFallback ? fallbackAdmin.sessionSecret : ""),
   };
+}
+
+function normalizePasswordHash(value: string) {
+  return value.trim().replaceAll("\\$", "$");
 }
 
 export function isAdminAuthConfigured() {
