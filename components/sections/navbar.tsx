@@ -2,35 +2,34 @@
 
 import { Menu, Sparkles, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { createWhatsAppLink } from "@/lib/whatsapp";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Template", href: "#template" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Fitur", href: "#fitur" },
-  { label: "Harga", href: "#harga" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/#home" },
+  { label: "Template", href: "/#template" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Fitur", href: "/#fitur" },
+  { label: "Harga", href: "/#harga" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const registrationLink = createWhatsAppLink(
-    "Halo admin SatuJanji, saya ingin daftar dan membuat undangan pernikahan digital.",
-  );
-  const loginHelpLink = createWhatsAppLink(
-    "Halo admin SatuJanji, saya ingin bertanya tentang akses masuk akun SatuJanji.",
-  );
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100/80 bg-white/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-gray-100/80 bg-white/90 backdrop-blur-xl">
       <nav
         className="section-shell flex min-h-20 items-center justify-between gap-4"
         aria-label="Navigasi utama"
       >
-        <Link href="#home" className="focus-ring flex items-center gap-3 rounded-full">
+        <Link href="/#home" className="focus-ring flex items-center gap-3 rounded-full">
           <span className="grid size-10 place-items-center rounded-full bg-gold text-white shadow-glow">
             <Sparkles className="size-5" aria-hidden="true" />
           </span>
@@ -52,10 +51,10 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href={loginHelpLink} target="_blank" rel="noreferrer" variant="ghost">
+          <Button href="/masuk" variant="ghost">
             Masuk
           </Button>
-          <Button href={registrationLink} target="_blank" rel="noreferrer">
+          <Button href="/daftar">
             Daftar
           </Button>
         </div>
@@ -72,39 +71,40 @@ export function Navbar() {
       </nav>
 
       {open ? (
-        <div className="border-t border-gray-100 bg-white lg:hidden">
-          <div className="section-shell grid gap-2 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="focus-ring rounded-lg px-3 py-3 text-sm font-medium text-gray-700 hover:bg-cream"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="mt-3 grid grid-cols-2 gap-3">
-              <Button
-                href={loginHelpLink}
-                target="_blank"
-                rel="noreferrer"
-                variant="secondary"
-                onClick={() => setOpen(false)}
-              >
+        <div className="fixed inset-x-0 top-20 z-[60] border-t border-gray-100 bg-white shadow-soft lg:hidden">
+          <div className="section-shell max-h-[calc(100svh-5rem)] overflow-y-auto py-4">
+            <div className="grid gap-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="focus-ring flex min-h-12 items-center rounded-lg px-4 text-sm font-semibold text-gray-800 transition hover:bg-cream hover:text-gray-950"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-3 border-t border-gray-100 pt-4">
+              <Button href="/masuk" variant="secondary" onClick={() => setOpen(false)}>
                 Masuk
               </Button>
-              <Button
-                href={registrationLink}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setOpen(false)}
-              >
+              <Button href="/daftar" onClick={() => setOpen(false)}>
                 Daftar
               </Button>
             </div>
           </div>
         </div>
+      ) : null}
+
+      {open ? (
+        <button
+          type="button"
+          className="fixed inset-0 top-20 z-[55] bg-gray-950/20 lg:hidden"
+          aria-label="Tutup menu navigasi"
+          onClick={() => setOpen(false)}
+        />
       ) : null}
     </header>
   );

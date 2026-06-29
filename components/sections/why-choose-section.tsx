@@ -1,29 +1,6 @@
-import { LayoutTemplate, Rocket, Smartphone, WandSparkles } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-
-const reasons = [
-  {
-    title: "Mudah Digunakan",
-    description: "Editor sederhana untuk mengisi data, foto, lokasi, dan cerita tanpa perlu coding.",
-    icon: WandSparkles,
-  },
-  {
-    title: "Template Elegan",
-    description: "Pilihan desain premium yang dirancang khusus untuk momen pernikahan modern.",
-    icon: LayoutTemplate,
-  },
-  {
-    title: "Responsif di Semua Perangkat",
-    description: "Undangan tampil rapi saat dibuka dari smartphone, tablet, maupun desktop.",
-    icon: Smartphone,
-  },
-  {
-    title: "Cepat Dibagikan",
-    description: "Bagikan link undangan ke WhatsApp, Instagram, atau keluarga dalam hitungan detik.",
-    icon: Rocket,
-  },
-];
+import { reasons } from "@/lib/site-content";
 
 export function WhyChooseSection() {
   return (
@@ -31,8 +8,8 @@ export function WhyChooseSection() {
       <div className="section-shell">
         <SectionHeading
           eyebrow="Kenapa SatuJanji"
-          title="Semua yang dibutuhkan untuk undangan digital yang berkesan"
-          description="Dibuat untuk pasangan yang ingin pengalaman undangan terasa personal, indah, dan tetap praktis."
+          title="Dibuat agar proses undangan lebih jelas"
+          description="Tidak perlu banyak menu. Cukup pilih desain, isi data, lalu bagikan link."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

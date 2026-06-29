@@ -50,19 +50,19 @@ export function Footer() {
             Kontak
           </h2>
           <div className="mt-5 grid gap-3 text-sm text-gray-600">
-            <p className="flex items-center gap-3">
+            <p className="flex min-w-0 items-center gap-3 break-words">
               <Mail className="size-4 text-gold" aria-hidden="true" />
               halo@satujanji.id
             </p>
-            <p className="flex items-center gap-3">
+            <p className="flex min-w-0 items-center gap-3">
               <Phone className="size-4 text-gold" aria-hidden="true" />
               +62 813 9027 7240
             </p>
-            <p className="flex items-center gap-3">
+            <p className="flex min-w-0 items-center gap-3">
               <MapPin className="size-4 text-gold" aria-hidden="true" />
               Jakarta, Indonesia
             </p>
-            <p className="flex items-center gap-3">
+            <p className="flex min-w-0 items-center gap-3">
               <Instagram className="size-4 text-gold" aria-hidden="true" />
               @satujanji.id
             </p>

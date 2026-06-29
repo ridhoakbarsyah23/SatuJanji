@@ -9,7 +9,6 @@ export type Template = {
   accent: string;
   icon: LucideIcon;
   tags: string[];
-  demoHref: string;
 };
 
 export const templates: Template[] = [
@@ -21,7 +20,6 @@ export const templates: Template[] = [
     accent: "#B68D40",
     icon: Sparkles,
     tags: ["Gold", "Clean", "Formal"],
-    demoHref: "/demo/aira-rama",
   },
   {
     name: "Sagara",
@@ -31,7 +29,6 @@ export const templates: Template[] = [
     accent: "#6B8F71",
     icon: Leaf,
     tags: ["Minimal", "Soft", "Modern"],
-    demoHref: "/demo/aira-rama",
   },
   {
     name: "Nayara",
@@ -41,7 +38,6 @@ export const templates: Template[] = [
     accent: "#C08497",
     icon: Flower2,
     tags: ["Floral", "Romantic", "Warm"],
-    demoHref: "/demo/aira-rama",
   },
   {
     name: "Arunika",
@@ -51,7 +47,6 @@ export const templates: Template[] = [
     accent: "#8B5E3C",
     icon: Gem,
     tags: ["Luxury", "Editorial", "Premium"],
-    demoHref: "/demo/aira-rama",
   },
   {
     name: "Laras",
@@ -61,7 +56,6 @@ export const templates: Template[] = [
     accent: "#A0522D",
     icon: Stars,
     tags: ["Adat", "Soft", "Elegant"],
-    demoHref: "/demo/aira-rama",
   },
   {
     name: "Amora",
@@ -71,6 +65,5 @@ export const templates: Template[] = [
     accent: "#A65F75",
     icon: Heart,
     tags: ["Story", "Photo", "Personal"],
-    demoHref: "/demo/aira-rama",
   },
 ];

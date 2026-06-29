@@ -1,5 +1,4 @@
-import { ArrowUpRight, MessageCircle } from "lucide-react";
-import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -12,8 +11,8 @@ export function TemplateSection() {
       <div className="section-shell">
         <SectionHeading
           eyebrow="Template"
-          title="Pilih tampilan undangan yang sesuai dengan cerita kalian"
-          description="Mulai dari elegan klasik, minimal modern, sampai romantis floral. Semua template dibuat responsif dan siap dikustom."
+          title="Pilih tampilan yang mudah dibaca tamu"
+          description="Template dibuat rapi, responsif, dan siap disesuaikan dengan kebutuhan acara."
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -46,13 +45,13 @@ export function TemplateSection() {
 
                         <div className="text-center">
                           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                            The Wedding Of
+                            Preview Template
                           </p>
-                          <h3 className="mt-3 font-serif text-4xl font-semibold text-gray-950">
+                          <h3 className="mt-3 break-words font-serif text-3xl font-semibold text-gray-950 sm:text-4xl">
                             {template.name}
                           </h3>
                           <p className="mt-3 text-sm text-gray-500">
-                            Sabtu, 27 Juni 2026
+                            Informasi acara tampil di sini
                           </p>
                         </div>
 
@@ -80,13 +79,6 @@ export function TemplateSection() {
                           {template.theme}
                         </p>
                       </div>
-                      <Link
-                        href={template.demoHref}
-                        className="focus-ring grid size-10 shrink-0 place-items-center rounded-full border border-gray-200 text-gray-700 transition hover:border-gold hover:text-gold"
-                        aria-label={`Lihat demo template ${template.name}`}
-                      >
-                        <ArrowUpRight className="size-4" aria-hidden="true" />
-                      </Link>
                     </div>
 
                     <p className="mt-4 text-sm leading-7 text-gray-600">
@@ -104,17 +96,15 @@ export function TemplateSection() {
                       ))}
                     </div>
 
-                    <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                      <Button href={template.demoHref} variant="secondary">
-                        Lihat Demo
-                      </Button>
+                    <div className="mt-6">
                       <Button
                         href={createTemplateInquiryLink(template.name)}
                         target="_blank"
                         rel="noreferrer"
+                        className="w-full"
                       >
                         <MessageCircle className="size-4" aria-hidden="true" />
-                        Tanya
+                        Konsultasi Template
                       </Button>
                     </div>
                   </div>

@@ -4,3 +4,9 @@ out
 dist
 .env*
 *.log
+coverage
+.turbo
+.vercel
+.DS_Store
+Thumbs.db
+data/leads.json

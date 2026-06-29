@@ -5,18 +5,15 @@ import { FloatingWhatsApp } from "@/components/sections/floating-whatsapp";
 import { Footer } from "@/components/sections/footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { HowItWorksSection } from "@/components/sections/how-it-works-section";
-import { Navbar } from "@/components/sections/navbar";
 import { PortfolioSection } from "@/components/sections/portfolio-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { TemplateSection } from "@/components/sections/template-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { TrustBar } from "@/components/sections/trust-bar";
 import { WhyChooseSection } from "@/components/sections/why-choose-section";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main className="pb-20 lg:pb-0">
         <HeroSection />
         <TrustBar />
@@ -26,7 +23,6 @@ export default function Home() {
         <FeaturesSection />
         <HowItWorksSection />
         <PricingSection />
-        <TestimonialsSection />
         <FAQSection />
         <CTASection />
       </main>

@@ -1,4 +1,4 @@
-import { Eye, MessageCircle } from "lucide-react";
+import { LayoutTemplate, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
@@ -31,11 +31,11 @@ export function FloatingWhatsApp() {
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-gray-100 bg-white/95 p-3 shadow-soft backdrop-blur-xl lg:hidden">
         <div className="grid grid-cols-2 gap-3">
           <Link
-            href="/demo/aira-rama"
+            href="/#template"
             className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-4 text-sm font-semibold text-gray-900"
           >
-            <Eye className="size-4" aria-hidden="true" />
-            Lihat Demo
+            <LayoutTemplate className="size-4" aria-hidden="true" />
+            Template
           </Link>
           <a
             href={whatsappLink}

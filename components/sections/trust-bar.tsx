@@ -1,28 +1,5 @@
-import { Headphones, MonitorSmartphone, Rocket, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
-
-const trustItems = [
-  {
-    value: "100+",
-    label: "Undangan dibuat",
-    icon: Rocket,
-  },
-  {
-    value: "24 Jam",
-    label: "Siap dibagikan",
-    icon: ShieldCheck,
-  },
-  {
-    value: "Mobile",
-    label: "Responsif di semua perangkat",
-    icon: MonitorSmartphone,
-  },
-  {
-    value: "Admin",
-    label: "Dibantu sampai publish",
-    icon: Headphones,
-  },
-];
+import { trustItems } from "@/lib/site-content";
 
 export function TrustBar() {
   return (
@@ -35,15 +12,15 @@ export function TrustBar() {
 
               return (
                 <div
-                  key={item.label}
+                  key={item.title}
                   className="flex items-center gap-4 rounded-lg bg-cream/70 px-5 py-4"
                 >
                   <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-white text-gold shadow-sm">
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <div>
-                    <p className="text-lg font-bold text-gray-950">{item.value}</p>
-                    <p className="text-sm text-gray-600">{item.label}</p>
+                    <p className="text-base font-semibold text-gray-950">{item.title}</p>
+                    <p className="mt-1 text-sm leading-6 text-gray-600">{item.description}</p>
                   </div>
                 </div>
               );

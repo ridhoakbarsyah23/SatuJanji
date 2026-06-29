@@ -57,7 +57,7 @@ export function PricingSection() {
             )}
             target="_blank"
             rel="noreferrer"
-            className="min-w-52"
+            className="w-full min-[380px]:w-auto min-[380px]:min-w-52"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
             Tanya Admin

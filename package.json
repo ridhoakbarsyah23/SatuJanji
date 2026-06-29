@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx"
+    "lint": "eslint . --ext .ts,.tsx",
+    "admin:hash-password": "node scripts/generate-admin-password-hash.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.23.0",

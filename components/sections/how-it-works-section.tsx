@@ -1,24 +1,6 @@
-import { Link2, PenLine, PanelsTopLeft } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-
-const steps = [
-  {
-    title: "Pilih Template",
-    description: "Mulai dari desain yang paling sesuai dengan gaya acara dan karakter pasangan.",
-    icon: PanelsTopLeft,
-  },
-  {
-    title: "Isi Data Pernikahan",
-    description: "Tambahkan nama, tanggal, lokasi, foto, cerita, RSVP, dan detail acara.",
-    icon: PenLine,
-  },
-  {
-    title: "Bagikan Link Undangan",
-    description: "Publikasikan undangan dan kirim link personal ke keluarga serta sahabat.",
-    icon: Link2,
-  },
-];
+import { steps } from "@/lib/site-content";
 
 export function HowItWorksSection() {
   return (
@@ -26,7 +8,7 @@ export function HowItWorksSection() {
       <div className="section-shell">
         <SectionHeading
           eyebrow="Cara Kerja"
-          title="Dari template ke undangan siap sebar dalam tiga langkah"
+          title="Dari template ke link undangan dalam tiga langkah"
         />
 
         <div className="mt-14 grid gap-5 lg:grid-cols-3">

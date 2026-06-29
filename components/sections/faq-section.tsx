@@ -1,34 +1,7 @@
 import { HelpCircle } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-
-const faqs = [
-  {
-    question: "Apakah SatuJanji bisa digunakan tanpa coding?",
-    answer:
-      "Bisa. Kamu cukup memilih template, mengisi data pernikahan, mengunggah foto, lalu membagikan link undangan.",
-  },
-  {
-    question: "Apakah undangan bisa dibuka di smartphone?",
-    answer:
-      "Ya. Semua template dibuat responsif agar tampil rapi di smartphone, tablet, dan desktop.",
-  },
-  {
-    question: "Bisakah tamu melakukan RSVP online?",
-    answer:
-      "Bisa. Tamu dapat mengonfirmasi kehadiran langsung dari halaman undangan digital.",
-  },
-  {
-    question: "Apakah bisa menambahkan lokasi Google Maps?",
-    answer:
-      "Bisa. Kamu dapat menambahkan lokasi akad, resepsi, atau acara lain agar tamu mudah menemukan alamat.",
-  },
-  {
-    question: "Berapa lama undangan aktif?",
-    answer:
-      "Masa aktif mengikuti paket yang dipilih. Kamu bisa memilih paket sesuai kebutuhan acara.",
-  },
-];
+import { faqs } from "@/lib/site-content";
 
 export function FAQSection() {
   return (
