@@ -12,11 +12,13 @@ import Link from "next/link";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
 const menu = [
-  { label: "Home", href: "#home" },
-  { label: "Template", href: "#template" },
-  { label: "Fitur", href: "#fitur" },
-  { label: "Harga", href: "#harga" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/#home" },
+  { label: "Template", href: "/#template" },
+  { label: "Harga", href: "/#harga" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Fitur", href: "/fitur" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Cara Kerja", href: "/cara-kerja" },
 ];
 
 const services = [
