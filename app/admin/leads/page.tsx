@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AdminPanel, LeadsTable } from "@/components/admin/admin-content";
 import { AdminShell } from "@/components/admin/admin-shell";
+import { LeadActionDialog } from "@/components/admin/admin-action-dialog";
 import { getLeads } from "@/lib/leads-store";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +20,7 @@ export default async function AdminLeadsPage() {
         title="Leads Pendaftar"
         description="Data dari halaman daftar nantinya akan masuk ke daftar ini."
         entity="Lead"
+        actionSlot={<LeadActionDialog action="add" />}
       >
         <LeadsTable leads={leads} />
       </AdminPanel>

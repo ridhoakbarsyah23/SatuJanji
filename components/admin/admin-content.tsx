@@ -1,81 +1,56 @@
-import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import { AdminActionDialog } from "@/components/admin/admin-action-dialog";
-
-type StatItem = {
-  label: string;
-  value: number;
-  icon: LucideIcon;
-};
-
-type LeadItem = {
-  id?: string;
-  name: string;
-  email?: string;
-  phone: string;
-  packageName: string;
-  eventDate: string;
-  status: string;
-  createdAt?: string;
-};
+import {
+  AdminActionDialog,
+  AdminDeleteButton,
+  LeadActionDialog,
+  LeadDeleteButton,
+} from "@/components/admin/admin-action-dialog";
+import type { AdminCollection } from "@/lib/admin-store";
+import type { Lead } from "@/lib/leads-store";
 
 type AdminPanelProps = {
   title: string;
   description: string;
   entity: string;
+  collection?: AdminCollection;
+  actionSlot?: ReactNode;
   children: ReactNode;
 };
 
 type AdminRowProps = {
+  id: string;
   title: string;
   meta: string;
   status: string;
-  entity?: string;
+  entity: string;
+  collection: AdminCollection;
 };
-
-export function StatsGrid({ items }: { items: StatItem[] }) {
-  return (
-    <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      {items.map((item) => {
-        const Icon = item.icon;
-
-        return (
-          <article
-            key={item.label}
-            className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm text-gray-500">{item.label}</p>
-                <p className="mt-2 text-3xl font-bold text-gray-950">
-                  {item.value}
-                </p>
-              </div>
-              <span className="grid size-11 place-items-center rounded-lg bg-cream text-gold">
-                <Icon className="size-5" aria-hidden="true" />
-              </span>
-            </div>
-          </article>
-        );
-      })}
-    </section>
-  );
-}
 
 export function AdminPanel({
   title,
   description,
   entity,
+  collection,
+  actionSlot,
   children,
 }: AdminPanelProps) {
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+    <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-5 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="text-xl font-semibold text-gray-950">{title}</h2>
-          <p className="mt-2 text-sm leading-7 text-gray-600">{description}</p>
+          <h2 className="text-xl font-semibold text-[#111827]">{title}</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#6B7280]">
+            {description}
+          </p>
         </div>
-        <AdminActionDialog action="add" entity={entity} />
+        {actionSlot ??
+          (collection ? (
+            <AdminActionDialog
+              action="add"
+              entity={entity}
+              collection={collection}
+            />
+          ) : null)}
       </div>
       <div className="mt-6">{children}</div>
     </section>
@@ -83,36 +58,84 @@ export function AdminPanel({
 }
 
 export function AdminRow({
+  id,
   title,
   meta,
   status,
-  entity = "Data",
+  entity,
+  collection,
 }: AdminRowProps) {
   return (
-    <article className="flex flex-col gap-4 rounded-lg border border-gray-100 bg-gray-50 p-4 sm:flex-row sm:items-center sm:justify-between">
+    <article className="flex flex-col gap-4 rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4 transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h3 className="font-semibold text-gray-950">{title}</h3>
-        <p className="mt-1 line-clamp-2 text-sm leading-6 text-gray-600">{meta}</p>
+        <h3 className="font-semibold text-[#111827]">{title}</h3>
+        <p className="mt-1 line-clamp-2 text-sm leading-6 text-[#6B7280]">
+          {meta}
+        </p>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <StatusBadge status={status} />
         <AdminActionDialog
           action="edit"
           entity={entity}
+          collection={collection}
+          id={id}
           title={title}
           meta={meta}
           status={status}
+        />
+        <AdminDeleteButton
+          id={id}
+          entity={entity}
+          collection={collection}
+          title={title}
         />
       </div>
     </article>
   );
 }
 
-export function LeadsTable({ leads }: { leads: LeadItem[] }) {
+export function LeadsTable({ leads }: { leads: Lead[] }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-gray-200">
-      <table className="w-full min-w-[42rem] text-left text-sm">
-        <thead className="bg-gray-50 text-xs font-semibold uppercase tracking-[0.12em] text-gray-500">
+    <>
+      <div className="grid gap-3 md:hidden">
+        {leads.map((lead) => (
+          <article
+            key={lead.id}
+            className="rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h3 className="font-semibold text-[#111827]">{lead.name}</h3>
+                <p className="mt-1 text-sm text-[#6B7280]">{lead.email}</p>
+              </div>
+              <StatusBadge status={lead.status} />
+            </div>
+            <dl className="mt-4 grid gap-2 text-sm text-[#6B7280]">
+              <div className="flex justify-between gap-4">
+                <dt>Paket</dt>
+                <dd className="font-medium text-[#111827]">{lead.packageName}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt>Tanggal</dt>
+                <dd className="font-medium text-[#111827]">{lead.eventDate}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt>WhatsApp</dt>
+                <dd className="font-medium text-[#111827]">{lead.phone}</dd>
+              </div>
+            </dl>
+            <div className="mt-4 flex items-center gap-3">
+              <LeadActionDialog action="edit" lead={lead} />
+              <LeadDeleteButton lead={lead} />
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="hidden overflow-hidden rounded-[20px] border border-[#ECE8E2] md:block">
+        <table className="w-full text-left text-sm">
+          <thead className="bg-[#FAFAF8] text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
           <tr>
             <th className="px-4 py-3">Nama</th>
             <th className="px-4 py-3">Email</th>
@@ -120,24 +143,32 @@ export function LeadsTable({ leads }: { leads: LeadItem[] }) {
             <th className="px-4 py-3">Paket</th>
             <th className="px-4 py-3">Tanggal</th>
             <th className="px-4 py-3">Status</th>
+            <th className="px-4 py-3">Aksi</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-100 bg-white">
+        <tbody className="divide-y divide-[#ECE8E2] bg-white">
           {leads.map((lead) => (
-            <tr key={lead.id ?? `${lead.name}-${lead.phone}`}>
-              <td className="px-4 py-4 font-semibold text-gray-950">{lead.name}</td>
-              <td className="px-4 py-4 text-gray-600">{lead.email ?? "-"}</td>
-              <td className="px-4 py-4 text-gray-600">{lead.phone}</td>
-              <td className="px-4 py-4 text-gray-600">{lead.packageName}</td>
-              <td className="px-4 py-4 text-gray-600">{lead.eventDate}</td>
+            <tr key={lead.id} className="transition hover:bg-[#F7F3EE]">
+              <td className="px-4 py-4 font-semibold text-[#111827]">{lead.name}</td>
+              <td className="px-4 py-4 text-[#6B7280]">{lead.email}</td>
+              <td className="px-4 py-4 text-[#6B7280]">{lead.phone}</td>
+              <td className="px-4 py-4 text-[#6B7280]">{lead.packageName}</td>
+              <td className="px-4 py-4 text-[#6B7280]">{lead.eventDate}</td>
               <td className="px-4 py-4">
                 <StatusBadge status={lead.status} />
+              </td>
+              <td className="px-4 py-4">
+                <div className="flex items-center gap-3">
+                  <LeadActionDialog action="edit" lead={lead} />
+                  <LeadDeleteButton lead={lead} />
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+      </div>
+    </>
   );
 }
 
@@ -147,7 +178,7 @@ export function StatusBadge({ status }: { status: string }) {
   return (
     <span
       className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
-        isActive ? "bg-green-50 text-green-700" : "bg-cream text-gold"
+        isActive ? "bg-green-50 text-[#22C55E]" : "bg-[#F7F3EE] text-[#C79A4A]"
       }`}
     >
       {status}

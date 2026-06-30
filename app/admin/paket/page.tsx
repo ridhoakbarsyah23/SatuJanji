@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
 import { AdminPanel, AdminRow } from "@/components/admin/admin-content";
 import { AdminShell } from "@/components/admin/admin-shell";
-import { adminPlans } from "@/lib/admin-data";
+import { getAdminItems } from "@/lib/admin-store";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Kelola Paket",
   description: "Halaman admin untuk mengelola paket SatuJanji.",
 };
 
-export default function AdminPaketPage() {
+export default async function AdminPaketPage() {
+  const plans = await getAdminItems("plans");
+
   return (
     <AdminShell>
       <AdminPanel
         title="Kelola Paket"
         description="Ubah deskripsi paket dan daftar fitur yang ditawarkan."
         entity="Paket"
+        collection="plans"
       >
         <div className="grid gap-3">
-          {adminPlans.map((plan) => (
+          {plans.map((plan) => (
             <AdminRow
-              key={plan.name}
+              key={plan.id}
+              id={plan.id}
               entity="Paket"
-              title={plan.name}
-              meta={`${plan.description} ${plan.features.join(", ")}`}
+              collection="plans"
+              title={plan.title}
+              meta={plan.meta}
               status={plan.status}
             />
           ))}

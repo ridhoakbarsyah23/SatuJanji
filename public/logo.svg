@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-label="SatuJanji">
+  <g fill="#121416">
+    <path d="M76 108c13 15 31 23 54 23 26 0 44-13 44-32 0-19-16-30-42-46-29-18-45-33-45-58 0-32 28-52 64-52 17 0 34 4 49 13l2 50h-6c-7-37-26-54-56-54-22 0-37 12-37 29 0 18 15 29 41 45 31 19 48 34 48 60 0 34-29 55-70 55-19 0-39-5-55-14l-4-55h6c3 15 6 27 7 36z" transform="translate(28 40) scale(.82)"/>
+    <path d="M246 139c0 30-17 50-46 50-13 0-24-4-33-12l5-9c7 6 14 9 22 9 16 0 24-13 24-38V44h28v95z"/>
+  </g>
+  <path d="M232 45c19-5 30-16 35-35 5 19 16 30 35 35-19 5-30 16-35 35-5-19-16-30-35-35z" fill="#B68D40"/>
+  <text x="330" y="104" fill="#121416" font-family="Georgia, 'Times New Roman', serif" font-size="58" letter-spacing="2">SatuJanji</text>
+  <text x="333" y="144" fill="#8A7462" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="8">BERKOMITMEN DALAM SETIAP JANJI</text>
+  <path d="M382 177h88" stroke="#B68D40" stroke-width="3" stroke-linecap="round"/>
+  <path d="M504 177h88" stroke="#B68D40" stroke-width="3" stroke-linecap="round"/>
+  <path d="M475 177c12-3 19-10 22-22 3 12 10 19 22 22-12 3-19 10-22 22-3-12-10-19-22-22z" fill="#B68D40"/>
+</svg>

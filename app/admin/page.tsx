@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import {
-  HelpCircle,
-  LayoutTemplate,
-  PackageCheck,
-  UsersRound,
-} from "lucide-react";
-import Link from "next/link";
+import { ActivityTimeline } from "@/components/admin/ActivityTimeline";
 import { AdminShell } from "@/components/admin/admin-shell";
-import { StatsGrid } from "@/components/admin/admin-content";
-import { adminFaqs, adminPlans, adminTemplates } from "@/lib/admin-data";
+import { LeadsPreview } from "@/components/admin/LeadsPreview";
+import { QuickActionCard, type QuickAction } from "@/components/admin/QuickActionCard";
+import { StatsGrid, type StatCardItem } from "@/components/admin/StatCard";
+import { WelcomeCard } from "@/components/admin/WelcomeCard";
+import { getAdminStats } from "@/lib/admin-store";
 import { getLeads } from "@/lib/leads-store";
 
 export const dynamic = "force-dynamic";
@@ -20,77 +17,86 @@ export const metadata: Metadata = {
 
 const quickLinks = [
   {
-    title: "Kelola Template",
-    description: "Atur nama, tema, tag, dan status template yang tampil di landing.",
+    title: "Tambah Template",
+    description: "Kelola koleksi desain undangan yang tampil di landing.",
     href: "/admin/template",
-    icon: LayoutTemplate,
+    icon: "template",
   },
   {
-    title: "Kelola Paket",
-    description: "Ubah deskripsi paket dan daftar fitur yang ditawarkan.",
+    title: "Tambah Paket",
+    description: "Atur pilihan paket dan value yang ditawarkan.",
     href: "/admin/paket",
-    icon: PackageCheck,
+    icon: "package",
   },
   {
-    title: "Kelola FAQ",
-    description: "Perbarui pertanyaan yang sering ditanyakan calon customer.",
+    title: "Tambah FAQ",
+    description: "Perbarui pertanyaan penting untuk calon pelanggan.",
     href: "/admin/faq",
-    icon: HelpCircle,
+    icon: "faq",
   },
   {
-    title: "Leads Pendaftar",
-    description: "Pantau calon customer yang masuk dari halaman daftar.",
+    title: "Lihat Leads",
+    description: "Pantau calon customer terbaru dari halaman daftar.",
     href: "/admin/leads",
-    icon: UsersRound,
+    icon: "leads",
   },
-];
+] satisfies QuickAction[];
 
 export default async function AdminDashboardPage() {
   const leads = await getLeads();
-  const stats = [
-    { label: "Template", value: adminTemplates.length, icon: LayoutTemplate },
-    { label: "Paket", value: adminPlans.length, icon: PackageCheck },
-    { label: "FAQ", value: adminFaqs.length, icon: HelpCircle },
-    { label: "Leads", value: leads.length, icon: UsersRound },
+  const adminStats = await getAdminStats();
+  const stats: StatCardItem[] = [
+    {
+      label: "Template",
+      value: adminStats.templates,
+      trend: "+2 minggu ini",
+      icon: "template",
+    },
+    {
+      label: "Paket",
+      value: adminStats.plans,
+      trend: "+1 minggu ini",
+      icon: "package",
+    },
+    {
+      label: "FAQ",
+      value: adminStats.faqs,
+      trend: "+3 minggu ini",
+      icon: "faq",
+    },
+    {
+      label: "Leads",
+      value: leads.length,
+      trend: "+5 minggu ini",
+      icon: "leads",
+    },
   ];
 
   return (
     <AdminShell>
       <div className="grid gap-6">
+        <WelcomeCard />
         <StatsGrid items={stats} />
 
-        <section className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm sm:p-6">
+        <section>
           <div>
-            <h2 className="text-xl font-semibold text-gray-950">Ringkasan Admin</h2>
-            <p className="mt-2 text-sm leading-7 text-gray-600">
-              Pilih area pengelolaan untuk membuka halaman khusus sesuai isi data.
+            <h2 className="text-lg font-semibold text-[#111827]">Aksi Cepat</h2>
+            <p className="mt-1 text-sm text-[#6B7280]">
+              Buka area pengelolaan utama dengan cepat.
             </p>
           </div>
 
-          <div className="mt-6 grid gap-3 md:grid-cols-2">
-            {quickLinks.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="focus-ring flex items-start gap-4 rounded-lg border border-gray-100 bg-gray-50 p-4 transition hover:border-gold/20 hover:bg-cream"
-                >
-                  <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-white text-gold">
-                    <Icon className="size-5" aria-hidden="true" />
-                  </span>
-                  <span>
-                    <span className="block font-semibold text-gray-950">{item.title}</span>
-                    <span className="mt-1 block text-sm leading-6 text-gray-600">
-                      {item.description}
-                    </span>
-                  </span>
-                </Link>
-              );
-            })}
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+            {quickLinks.map((item, index) => (
+              <QuickActionCard key={item.href} action={item} index={index} />
+            ))}
           </div>
         </section>
+
+        <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+          <ActivityTimeline />
+          <LeadsPreview leads={leads} />
+        </div>
       </div>
     </AdminShell>
   );

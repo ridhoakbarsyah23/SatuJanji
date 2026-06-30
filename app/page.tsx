@@ -5,6 +5,8 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { TemplateSection } from "@/components/sections/template-section";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

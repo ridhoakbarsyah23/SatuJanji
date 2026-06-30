@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu, Sparkles, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -28,13 +29,16 @@ export function Navbar() {
           className="section-shell flex min-h-20 items-center justify-between gap-4"
           aria-label="Navigasi utama"
         >
-          <Link href="/#home" className="focus-ring flex items-center gap-3 rounded-full">
-            <span className="grid size-10 place-items-center rounded-full bg-gold text-white shadow-glow">
-              <Sparkles className="size-5" aria-hidden="true" />
-            </span>
-            <span className="font-serif text-xl font-semibold text-gray-950">
-              SatuJanji
-            </span>
+          <Link href="/#home" className="focus-ring rounded-lg">
+            <Image
+              src="/logo.svg"
+              alt="SatuJanji"
+              width={196}
+              height={60}
+              priority
+              unoptimized
+              className="h-12 w-auto sm:h-14"
+            />
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">

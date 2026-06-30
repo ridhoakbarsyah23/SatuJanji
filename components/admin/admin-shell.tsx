@@ -1,76 +1,70 @@
 "use client";
 
-import {
-  ClipboardList,
-  HelpCircle,
-  LayoutTemplate,
-  PackageCheck,
-  UsersRound,
-} from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
-import { LogoutButton } from "@/components/auth/logout-button";
+import { CheckCircle2 } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState, type ReactNode } from "react";
+import { Sidebar } from "@/components/admin/Sidebar";
+import { TopNavbar } from "@/components/admin/TopNavbar";
 
-const navItems = [
-  { label: "Ringkasan", href: "/admin", icon: ClipboardList },
-  { label: "Template", href: "/admin/template", icon: LayoutTemplate },
-  { label: "Paket", href: "/admin/paket", icon: PackageCheck },
-  { label: "FAQ", href: "/admin/faq", icon: HelpCircle },
-  { label: "Leads", href: "/admin/leads", icon: UsersRound },
-];
+const toastDurationMs = 10000;
 
 type AdminShellProps = {
   children: ReactNode;
 };
 
 export function AdminShell({ children }: AdminShellProps) {
-  const pathname = usePathname();
+  return (
+    <main className="min-h-svh bg-[#FAFAF8] font-sans text-[#111827]">
+      <div className="flex min-h-svh">
+        <Sidebar />
+        <div className="min-w-0 flex-1">
+          <TopNavbar />
+          <div className="mx-auto w-full max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+            {children}
+          </div>
+        </div>
+      </div>
+
+      <AdminRouteNotice />
+    </main>
+  );
+}
+
+function AdminRouteNotice() {
+  const searchParams = useSearchParams();
+  const [show, setShow] = useState(false);
+  const notice = searchParams.get("notice");
+
+  useEffect(() => {
+    if (!notice) {
+      setShow(false);
+      return;
+    }
+
+    setShow(true);
+    const timeout = window.setTimeout(() => setShow(false), toastDurationMs);
+    return () => window.clearTimeout(timeout);
+  }, [notice]);
+
+  if (!show || notice !== "deleted") {
+    return null;
+  }
 
   return (
-    <main className="min-h-svh bg-gray-50 text-gray-950">
-      <header className="border-b border-gray-200 bg-white">
-        <div className="mx-auto flex min-h-16 w-full max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-3 sm:px-6 lg:px-8">
-          <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">
-              Admin
-            </p>
-            <h1 className="truncate font-serif text-2xl font-semibold">
-              Dashboard SatuJanji
-            </h1>
-          </div>
-          <LogoutButton />
-        </div>
-      </header>
-
-      <div className="mx-auto grid w-full max-w-7xl gap-6 px-5 py-8 sm:px-6 lg:grid-cols-[16rem_1fr] lg:px-8">
-        <aside className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:sticky lg:top-6 lg:h-fit">
-          <nav className="grid gap-1" aria-label="Admin navigation">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const active = pathname === item.href;
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`focus-ring flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm font-semibold transition ${
-                    active
-                      ? "bg-cream text-gray-950"
-                      : "text-gray-700 hover:bg-cream hover:text-gray-950"
-                  }`}
-                >
-                  <Icon className="size-4 text-gold" aria-hidden="true" />
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </aside>
-
-        <section className="min-w-0">{children}</section>
+    <div
+      role="status"
+      aria-live="polite"
+      className="fixed right-4 top-4 z-[160] flex w-[calc(100%-2rem)] max-w-sm items-start gap-3 rounded-2xl border border-green-100 bg-white p-4 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.12)] sm:right-6 sm:top-6"
+    >
+      <span className="grid size-10 shrink-0 place-items-center rounded-2xl bg-green-50 text-[#22C55E]">
+        <CheckCircle2 className="size-5" aria-hidden="true" />
+      </span>
+      <div>
+        <p className="text-sm font-semibold">Data berhasil dihapus.</p>
+        <p className="mt-1 text-sm leading-6 text-[#6B7280]">
+          Data admin sudah diperbarui.
+        </p>
       </div>
-    </main>
+    </div>
   );
 }

@@ -18,6 +18,7 @@ export type LeadInput = {
   phone: string;
   packageName: string;
   eventDate: string;
+  status?: string;
 };
 
 const leadsPath = path.join(process.cwd(), "data", "leads.json");
@@ -55,7 +56,7 @@ export async function addLead(input: LeadInput) {
     phone: input.phone,
     packageName: getPackageLabel(input.packageName),
     eventDate: input.eventDate || "-",
-    status: "Baru",
+    status: input.status || "Baru",
     createdAt: new Date().toISOString(),
   };
 
@@ -67,4 +68,34 @@ export async function addLead(input: LeadInput) {
   );
 
   return lead;
+}
+
+export async function updateLead(id: string, input: LeadInput) {
+  const leads = await getLeads();
+  const updatedLeads = leads.map((lead) =>
+    lead.id === id
+      ? {
+          ...lead,
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          packageName: getPackageLabel(input.packageName),
+          eventDate: input.eventDate || "-",
+          status: input.status || lead.status,
+        }
+      : lead,
+  );
+
+  await fs.mkdir(path.dirname(leadsPath), { recursive: true });
+  await fs.writeFile(leadsPath, JSON.stringify(updatedLeads, null, 2), "utf8");
+}
+
+export async function deleteLead(id: string) {
+  const leads = await getLeads();
+  await fs.mkdir(path.dirname(leadsPath), { recursive: true });
+  await fs.writeFile(
+    leadsPath,
+    JSON.stringify(leads.filter((lead) => lead.id !== id), null, 2),
+    "utf8",
+  );
 }

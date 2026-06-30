@@ -10,3 +10,5 @@ coverage
 .DS_Store
 Thumbs.db
 data/leads.json
+data/admin-content.json
+tsconfig.tsbuildinfo
