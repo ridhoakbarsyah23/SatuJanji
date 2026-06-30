@@ -93,12 +93,12 @@ export function AdminActionDialog({
 
       {open ? (
         <div
-          className="fixed inset-0 z-[100] grid place-items-center bg-[#111827]/45 px-5 py-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-[#111827]/45 px-4 py-4 backdrop-blur-sm sm:px-5 sm:py-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby={`${action}-${entity}-title`}
         >
-          <section className="w-full max-w-lg rounded-[20px] border border-[#ECE8E2] bg-white p-5 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)] sm:p-6">
+          <section className="max-h-[calc(100svh-2rem)] w-full max-w-lg overflow-y-auto rounded-[20px] border border-[#ECE8E2] bg-white p-4 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)] sm:p-6">
             <DialogHeader
               action={action}
               entity={entity}
@@ -232,19 +232,19 @@ export function LeadActionDialog({
 
       {open ? (
         <div
-          className="fixed inset-0 z-[100] grid place-items-center bg-[#111827]/45 px-5 py-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-[#111827]/45 px-4 py-4 backdrop-blur-sm sm:px-5 sm:py-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby={`${action}-lead-title`}
         >
-          <section className="w-full max-w-2xl rounded-[20px] border border-[#ECE8E2] bg-white p-5 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)] sm:p-6">
+          <section className="max-h-[calc(100svh-2rem)] w-full max-w-2xl overflow-y-auto rounded-[20px] border border-[#ECE8E2] bg-white p-4 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)] sm:p-6">
             <DialogHeader
               action={action}
               entity="Lead"
               onClose={() => setOpen(false)}
             />
 
-            <form action={formAction} className="mt-6 grid gap-4">
+            <form action={formAction} className="mt-5 grid gap-4 sm:mt-6">
               <input type="hidden" name="id" value={lead?.id ?? ""} />
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -402,7 +402,7 @@ function DialogActions({
   onCancel: () => void;
 }) {
   return (
-    <div className="mt-2 grid grid-cols-2 gap-3">
+    <div className="mt-2 grid gap-3 sm:grid-cols-2">
       <button
         type="button"
         className="focus-ring inline-flex min-h-11 items-center justify-center rounded-xl border border-[#ECE8E2] bg-white px-4 text-sm font-semibold text-[#111827] transition hover:border-[#C79A4A]/30 hover:bg-[#F7F3EE]"

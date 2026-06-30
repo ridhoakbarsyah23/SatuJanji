@@ -20,13 +20,13 @@ export function SettingsSurface({
   cards,
 }: SettingsSurfaceProps) {
   return (
-    <div className="grid gap-6">
-      <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-6 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-8">
+    <div className="grid gap-5 sm:gap-6">
+      <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-5 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#C79A4A]">
           {eyebrow}
         </p>
         <h2
-          className="mt-3 text-3xl font-semibold text-[#111827]"
+          className="mt-3 break-words text-3xl font-semibold leading-tight text-[#111827] sm:text-4xl"
           style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
         >
           {title}
@@ -36,7 +36,7 @@ export function SettingsSurface({
         </p>
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-3">
+      <section className="grid gap-4 xl:grid-cols-3">
         {cards.map((card) => {
           const Icon = card.icon;
 
@@ -48,7 +48,7 @@ export function SettingsSurface({
               <span className="grid size-12 place-items-center rounded-2xl bg-[#F7F3EE] text-[#C79A4A]">
                 <Icon className="size-6" aria-hidden="true" />
               </span>
-              <h3 className="mt-5 text-base font-semibold text-[#111827]">
+              <h3 className="mt-5 break-words text-base font-semibold text-[#111827]">
                 {card.title}
               </h3>
               <p className="mt-2 text-sm leading-6 text-[#6B7280]">

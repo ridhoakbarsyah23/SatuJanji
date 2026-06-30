@@ -74,7 +74,7 @@ export default async function AdminDashboardPage() {
 
   return (
     <AdminShell>
-      <div className="grid gap-6">
+      <div className="grid gap-5 sm:gap-6">
         <WelcomeCard />
         <StatsGrid items={stats} />
 
@@ -86,14 +86,14 @@ export default async function AdminDashboardPage() {
             </p>
           </div>
 
-          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+          <div className="mt-4 grid gap-4 xl:grid-cols-2">
             {quickLinks.map((item, index) => (
               <QuickActionCard key={item.href} action={item} index={index} />
             ))}
           </div>
         </section>
 
-        <div className="grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-5 sm:gap-6 2xl:grid-cols-[0.9fr_1.1fr]">
           <ActivityTimeline />
           <LeadsPreview leads={leads} />
         </div>

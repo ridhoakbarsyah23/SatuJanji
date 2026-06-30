@@ -16,8 +16,34 @@ export function LeadsPreview({ leads }: { leads: Lead[] }) {
 
       <div className="mt-6">
         {latestLeads.length ? (
-          <div className="overflow-hidden rounded-2xl border border-[#ECE8E2]">
-            <table className="w-full text-left text-sm">
+          <>
+            <div className="grid gap-3 lg:hidden">
+              {latestLeads.map((lead) => (
+                <article
+                  key={lead.id}
+                  className="rounded-2xl border border-[#ECE8E2] bg-[#FAFAF8] p-4"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <h3 className="truncate font-semibold text-[#111827]">
+                        {lead.name}
+                      </h3>
+                      <p className="mt-1 truncate text-sm text-[#6B7280]">
+                        {lead.email}
+                      </p>
+                    </div>
+                    <StatusBadge status={lead.status} />
+                  </div>
+                  <p className="mt-3 text-sm text-[#6B7280]">
+                    Tanggal:{" "}
+                    <span className="font-medium text-[#111827]">{lead.eventDate}</span>
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="hidden overflow-hidden rounded-2xl border border-[#ECE8E2] lg:block">
+              <table className="w-full text-left text-sm">
               <thead className="bg-[#FAFAF8] text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
                 <tr>
                   <th className="px-4 py-3">Nama</th>
@@ -40,8 +66,9 @@ export function LeadsPreview({ leads }: { leads: Lead[] }) {
                   </tr>
                 ))}
               </tbody>
-            </table>
-          </div>
+              </table>
+            </div>
+          </>
         ) : (
           <EmptyState
             title="Belum ada leads."

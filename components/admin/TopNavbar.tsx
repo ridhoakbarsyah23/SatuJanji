@@ -32,23 +32,23 @@ export function TopNavbar() {
   const title = pageTitles[pathname] ?? "Dashboard";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#ECE8E2] bg-[#FAFAF8]/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 border-b border-[#ECE8E2] bg-[#FAFAF8]/95 backdrop-blur-xl">
+      <div className="mx-auto flex min-h-[72px] w-full max-w-[1440px] flex-wrap items-center gap-2.5 px-4 py-3 sm:gap-3 sm:px-6 lg:flex-nowrap lg:px-8">
         <MobileSidebarTrigger />
 
-        <div className="min-w-[7rem]">
+        <div className="min-w-0 flex-1 lg:flex-none">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C79A4A]">
             Admin
           </p>
           <h1
-            className="truncate text-2xl font-semibold text-[#111827]"
+            className="truncate text-xl font-semibold text-[#111827] sm:text-2xl"
             style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
           >
             {pathname === "/admin" ? "Dashboard SatuJanji" : title}
           </h1>
         </div>
 
-        <label className="relative mx-auto hidden w-full max-w-xl md:block">
+        <label className="relative order-last w-full lg:order-none lg:mx-auto lg:block lg:max-w-md xl:max-w-xl">
           <span className="sr-only">Cari konten admin</span>
           <Search
             className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#9CA3AF]"
@@ -57,14 +57,14 @@ export function TopNavbar() {
           <input
             type="search"
             placeholder="Cari template, paket, FAQ..."
-            className="focus-ring h-11 w-full rounded-2xl border border-[#ECE8E2] bg-white pl-11 pr-4 text-sm text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#C79A4A] focus:bg-white"
+            className="focus-ring h-10 w-full rounded-2xl border border-[#ECE8E2] bg-white pl-11 pr-4 text-sm text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#C79A4A] focus:bg-white sm:h-11"
           />
         </label>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2">
           <Link
             href="/admin/notifications"
-            className="focus-ring grid size-11 place-items-center rounded-2xl border border-[#ECE8E2] bg-white text-[#6B7280] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#F7F3EE] hover:text-[#111827]"
+            className="focus-ring grid size-10 place-items-center rounded-2xl border border-[#ECE8E2] bg-white text-[#6B7280] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#F7F3EE] hover:text-[#111827] sm:size-11"
             aria-label="Notifikasi"
           >
             <Bell className="size-5" aria-hidden="true" />
@@ -73,7 +73,7 @@ export function TopNavbar() {
           <div className="relative">
             <button
               type="button"
-              className="focus-ring flex min-h-11 items-center gap-3 rounded-2xl border border-[#ECE8E2] bg-white px-2.5 py-1.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:bg-[#F7F3EE]"
+              className="focus-ring flex min-h-10 items-center gap-2 rounded-2xl border border-[#ECE8E2] bg-white px-2 py-1.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:bg-[#F7F3EE] sm:min-h-11 sm:gap-3 sm:px-2.5"
               aria-label="Menu admin"
               aria-expanded={open}
               onClick={() => setOpen((value) => !value)}
@@ -96,7 +96,7 @@ export function TopNavbar() {
             <AnimatePresence>
               {open ? (
                 <motion.div
-                  className="absolute right-0 top-14 z-50 w-64 rounded-3xl border border-[#ECE8E2] bg-white p-2 shadow-[0_24px_70px_rgba(17,24,39,0.12)]"
+                  className="fixed left-4 right-4 top-[4.75rem] z-50 rounded-3xl border border-[#ECE8E2] bg-white p-2 shadow-[0_24px_70px_rgba(17,24,39,0.12)] sm:absolute sm:left-auto sm:right-0 sm:top-14 sm:w-64"
                   initial={{ opacity: 0, y: -6, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -6, scale: 0.98 }}

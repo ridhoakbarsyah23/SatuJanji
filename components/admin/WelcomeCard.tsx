@@ -8,13 +8,13 @@ export function WelcomeCard() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-[20px] border border-[#ECE8E2] bg-white p-6 shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:p-8"
+      className="relative overflow-hidden rounded-[20px] border border-[#ECE8E2] bg-white p-5 shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:p-6 xl:p-8"
     >
-      <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_22rem] lg:items-center">
+      <div className="relative z-10 grid gap-6 xl:grid-cols-[1fr_18rem] 2xl:grid-cols-[1fr_22rem] xl:items-center">
         <div>
           <p className="text-sm font-semibold text-[#C79A4A]">Halo, Admin</p>
           <h2
-            className="mt-3 max-w-2xl text-3xl font-semibold tracking-normal text-[#111827] sm:text-4xl"
+            className="mt-3 max-w-2xl text-3xl font-semibold leading-tight tracking-normal text-[#111827] sm:text-4xl xl:text-[2.75rem]"
             style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
           >
             Selamat datang kembali di Dashboard SatuJanji.
@@ -24,7 +24,7 @@ export function WelcomeCard() {
           </p>
         </div>
 
-        <div className="hidden justify-end lg:flex">
+        <div className="hidden justify-end xl:flex">
           <WeddingLineArt />
         </div>
       </div>
@@ -36,7 +36,7 @@ function WeddingLineArt() {
   return (
     <svg
       viewBox="0 0 320 220"
-      className="h-48 w-72 text-[#C79A4A]"
+      className="h-40 w-60 text-[#C79A4A] 2xl:h-48 2xl:w-72"
       fill="none"
       aria-hidden="true"
     >

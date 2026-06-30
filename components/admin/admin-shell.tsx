@@ -14,12 +14,12 @@ type AdminShellProps = {
 
 export function AdminShell({ children }: AdminShellProps) {
   return (
-    <main className="min-h-svh bg-[#FAFAF8] font-sans text-[#111827]">
+    <main className="min-h-svh overflow-x-hidden bg-[#FAFAF8] font-sans text-[#111827]">
       <div className="flex min-h-svh">
         <Sidebar />
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 overflow-x-hidden">
           <TopNavbar />
-          <div className="mx-auto w-full max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+          <div className="mx-auto w-full max-w-[1440px] px-4 py-5 sm:px-6 lg:px-6 lg:py-6 xl:px-8 xl:py-8">
             {children}
           </div>
         </div>

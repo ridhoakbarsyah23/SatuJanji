@@ -35,10 +35,10 @@ export function AdminPanel({
   children,
 }: AdminPanelProps) {
   return (
-    <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-5 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-6">
+    <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <h2 className="text-xl font-semibold text-[#111827]">{title}</h2>
+        <div className="min-w-0">
+          <h2 className="text-lg font-semibold text-[#111827] sm:text-xl">{title}</h2>
           <p className="mt-2 max-w-2xl text-sm leading-7 text-[#6B7280]">
             {description}
           </p>
@@ -67,13 +67,13 @@ export function AdminRow({
 }: AdminRowProps) {
   return (
     <article className="flex flex-col gap-4 rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4 transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <h3 className="font-semibold text-[#111827]">{title}</h3>
-        <p className="mt-1 line-clamp-2 text-sm leading-6 text-[#6B7280]">
+      <div className="min-w-0">
+        <h3 className="break-words font-semibold text-[#111827]">{title}</h3>
+        <p className="mt-1 text-sm leading-6 text-[#6B7280] sm:line-clamp-2">
           {meta}
         </p>
       </div>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         <StatusBadge status={status} />
         <AdminActionDialog
           action="edit"
@@ -105,24 +105,30 @@ export function LeadsTable({ leads }: { leads: Lead[] }) {
             className="rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4"
           >
             <div className="flex items-start justify-between gap-3">
-              <div>
-                <h3 className="font-semibold text-[#111827]">{lead.name}</h3>
-                <p className="mt-1 text-sm text-[#6B7280]">{lead.email}</p>
+              <div className="min-w-0">
+                <h3 className="break-words font-semibold text-[#111827]">{lead.name}</h3>
+                <p className="mt-1 break-all text-sm text-[#6B7280]">{lead.email}</p>
               </div>
               <StatusBadge status={lead.status} />
             </div>
             <dl className="mt-4 grid gap-2 text-sm text-[#6B7280]">
-              <div className="flex justify-between gap-4">
+              <div className="grid grid-cols-[5rem_1fr] gap-4">
                 <dt>Paket</dt>
-                <dd className="font-medium text-[#111827]">{lead.packageName}</dd>
+                <dd className="break-words text-right font-medium text-[#111827]">
+                  {lead.packageName}
+                </dd>
               </div>
-              <div className="flex justify-between gap-4">
+              <div className="grid grid-cols-[5rem_1fr] gap-4">
                 <dt>Tanggal</dt>
-                <dd className="font-medium text-[#111827]">{lead.eventDate}</dd>
+                <dd className="break-words text-right font-medium text-[#111827]">
+                  {lead.eventDate}
+                </dd>
               </div>
-              <div className="flex justify-between gap-4">
+              <div className="grid grid-cols-[5rem_1fr] gap-4">
                 <dt>WhatsApp</dt>
-                <dd className="font-medium text-[#111827]">{lead.phone}</dd>
+                <dd className="break-words text-right font-medium text-[#111827]">
+                  {lead.phone}
+                </dd>
               </div>
             </dl>
             <div className="mt-4 flex items-center gap-3">
@@ -177,7 +183,7 @@ export function StatusBadge({ status }: { status: string }) {
 
   return (
     <span
-      className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
+      className={`inline-flex shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
         isActive ? "bg-green-50 text-[#22C55E]" : "bg-[#F7F3EE] text-[#C79A4A]"
       }`}
     >
