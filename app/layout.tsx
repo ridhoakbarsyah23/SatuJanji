@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Navbar } from "@/components/sections/navbar";
+import { ToastProvider } from "@/components/ui/toast";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -61,8 +62,10 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className="font-sans antialiased">
-        <Navbar />
-        {children}
+        <ToastProvider>
+          <Navbar />
+          {children}
+        </ToastProvider>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Pencil, Plus, Trash2, X } from "lucide-react";
+import { Pencil, Plus, Trash2, X } from "lucide-react";
 import { FormEvent, useActionState, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
@@ -9,6 +9,7 @@ import {
   saveAdminItem,
   saveLead,
 } from "@/app/admin/actions";
+import { useToast } from "@/lib/toast-store";
 import type { AdminCollection } from "@/lib/admin-store";
 import type { Lead } from "@/lib/leads-store";
 
@@ -34,8 +35,6 @@ const initialState = {
   message: "",
 };
 
-const toastDurationMs = 10000;
-
 export function AdminActionDialog({
   action,
   entity,
@@ -47,8 +46,8 @@ export function AdminActionDialog({
 }: AdminActionDialogProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [saved, setSaved] = useState(false);
   const [state, formAction, pending] = useActionState(saveAdminItem, initialState);
+  const { addToast } = useToast();
   const isEdit = action === "edit";
 
   useEffect(() => {
@@ -57,17 +56,12 @@ export function AdminActionDialog({
     }
 
     setOpen(false);
-    setSaved(true);
-  }, [state.ok]);
-
-  useEffect(() => {
-    if (!saved) {
-      return;
-    }
-
-    const timeout = window.setTimeout(() => setSaved(false), toastDurationMs);
-    return () => window.clearTimeout(timeout);
-  }, [saved]);
+    addToast({
+      type: "success",
+      message: state.message || "Perubahan tersimpan.",
+      description: "Data admin sudah diperbarui.",
+    });
+  }, [state.ok, state.message, addToast]);
 
   return (
     <>
@@ -140,7 +134,6 @@ export function AdminActionDialog({
         </div>
       ) : null}
 
-      <SavedToast show={saved} message={state.message || "Perubahan tersimpan."} />
     </>
   );
 }
@@ -186,8 +179,8 @@ export function LeadActionDialog({
   lead?: Lead;
 }) {
   const [open, setOpen] = useState(false);
-  const [saved, setSaved] = useState(false);
   const [state, formAction, pending] = useActionState(saveLead, initialState);
+  const { addToast } = useToast();
   const isEdit = action === "edit";
 
   useEffect(() => {
@@ -196,17 +189,12 @@ export function LeadActionDialog({
     }
 
     setOpen(false);
-    setSaved(true);
-  }, [state.ok]);
-
-  useEffect(() => {
-    if (!saved) {
-      return;
-    }
-
-    const timeout = window.setTimeout(() => setSaved(false), toastDurationMs);
-    return () => window.clearTimeout(timeout);
-  }, [saved]);
+    addToast({
+      type: "success",
+      message: state.message || "Lead tersimpan.",
+      description: "Data lead sudah diperbarui.",
+    });
+  }, [state.ok, state.message, addToast]);
 
   return (
     <>
@@ -284,7 +272,6 @@ export function LeadActionDialog({
         </div>
       ) : null}
 
-      <SavedToast show={saved} message={state.message || "Lead tersimpan."} />
     </>
   );
 }
@@ -430,29 +417,5 @@ function FormMessage({ message }: { message: string }) {
     <p role="alert" className="text-sm font-semibold text-[#EF4444]">
       {message}
     </p>
-  );
-}
-
-function SavedToast({ show, message }: { show: boolean; message: string }) {
-  if (!show) {
-    return null;
-  }
-
-  return (
-    <div
-      role="status"
-      aria-live="polite"
-      className="fixed right-4 top-4 z-[110] flex w-[calc(100%-2rem)] max-w-sm items-start gap-3 rounded-2xl border border-green-100 bg-white p-4 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.12)] sm:right-6 sm:top-6"
-    >
-      <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-green-50 text-[#22C55E]">
-        <CheckCircle2 className="size-5" aria-hidden="true" />
-      </span>
-      <div>
-        <p className="text-sm font-semibold">{message}</p>
-        <p className="mt-1 text-sm leading-6 text-[#6B7280]">
-          Data admin sudah diperbarui.
-        </p>
-      </div>
-    </div>
   );
 }

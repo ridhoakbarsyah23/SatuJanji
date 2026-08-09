@@ -3,7 +3,6 @@
 import {
   Bell,
   ChevronDown,
-  LogOut,
   Search,
   Settings,
   UserRound,
@@ -12,7 +11,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { LogoutConfirmDialog } from "@/components/admin/LogoutConfirmDialog";
 import { MobileSidebarTrigger } from "@/components/admin/Sidebar";
 
 const pageTitles: Record<string, string> = {
@@ -130,13 +128,6 @@ export function TopNavbar() {
                     <Bell className="size-4" aria-hidden="true" />
                     Notifications
                   </Link>
-                  <LogoutConfirmDialog
-                    className="focus-ring mt-1 flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-semibold text-[#EF4444] transition hover:bg-red-50"
-                    onConfirm={() => setOpen(false)}
-                  >
-                    <LogOut className="size-4" aria-hidden="true" />
-                    Logout
-                  </LogoutConfirmDialog>
                 </motion.div>
               ) : null}
             </AnimatePresence>
