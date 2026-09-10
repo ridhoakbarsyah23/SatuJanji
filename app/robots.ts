@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/admin/", "/api/", "/masuk", "/lupa-akses"],
     },
     sitemap: "https://satujanji.id/sitemap.xml",
   };
