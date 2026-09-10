@@ -48,10 +48,20 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Keep development and production artifacts separate. Running `next build`
+  // while the local dev server is active must not invalidate its compiled pages.
+  distDir: isProduction ? ".next" : ".next-dev",
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: isProduction,
+  },
+  webpack(config) {
+    // OneDrive can lock Webpack pack files during atomic renames. Disabling the
+    // persistent cache avoids intermittent EPERM/ENOENT errors in every mode.
+    config.cache = false;
+
+    return config;
   },
   async headers() {
     return [
