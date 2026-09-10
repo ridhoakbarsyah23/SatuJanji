@@ -2,8 +2,8 @@ import { Eye, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { templates } from "@/lib/templates";
-import { createTemplateInquiryLink } from "@/lib/whatsapp";
+import { templates } from "@/lib/content/templates";
+import { createTemplateInquiryLink } from "@/lib/services/whatsapp";
 
 export function TemplateSection() {
   return (

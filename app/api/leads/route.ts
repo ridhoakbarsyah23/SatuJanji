@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { addLead } from "@/lib/leads-store";
+import { addLead } from "@/lib/stores/leads-store";
 
 export async function POST(request: Request) {
   const formData = await request.formData();

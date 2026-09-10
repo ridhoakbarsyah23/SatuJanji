@@ -1,5 +1,7 @@
 "use client";
 
+// Client-side toast state shared by admin and public UI.
+
 import { createContext, useContext } from "react";
 
 export type ToastType = "success" | "error" | "info";

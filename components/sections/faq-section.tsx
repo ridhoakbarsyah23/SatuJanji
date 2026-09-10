@@ -1,6 +1,6 @@
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { getAdminItems } from "@/lib/admin-store";
+import { getAdminItems } from "@/lib/stores/admin-store";
 
 export async function FAQSection() {
   const faqs = (await getAdminItems("faqs")).filter(

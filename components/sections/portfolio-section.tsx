@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { systemPreviewItems } from "@/lib/site-content";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { systemPreviewItems } from "@/lib/content/site-content";
+import { createWhatsAppLink } from "@/lib/services/whatsapp";
 
 export function PortfolioSection() {
   return (

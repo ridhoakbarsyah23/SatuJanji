@@ -1,4 +1,4 @@
-import type { Lead } from "@/lib/leads-store";
+import type { Lead } from "@/lib/stores/leads-store";
 import { EmptyState } from "@/components/admin/EmptyState";
 import { StatusBadge } from "@/components/admin/admin-content";
 

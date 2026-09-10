@@ -1,3 +1,4 @@
+// Static marketing content used across public sections.
 import type { LucideIcon } from "lucide-react";
 import {
   Camera,

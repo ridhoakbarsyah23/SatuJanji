@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdminShell } from "@/components/admin/admin-shell";
 import { InvitationEditor } from "@/components/admin/invitation-editor";
-import { getInvitationById } from "@/lib/invitations-store";
+import { getInvitationById } from "@/lib/stores/invitations-store";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Edit Undangan" };

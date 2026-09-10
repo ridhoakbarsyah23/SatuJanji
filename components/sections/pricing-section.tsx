@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { createPackageInquiryLink, createWhatsAppLink } from "@/lib/whatsapp";
+import { createPackageInquiryLink, createWhatsAppLink } from "@/lib/services/whatsapp";
 
 const plans = [
   {

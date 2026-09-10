@@ -3,8 +3,8 @@
 import { CalendarDays, HeartHandshake, ImagePlus, MapPin, Palette, Save } from "lucide-react";
 import { useState } from "react";
 import { saveInvitationAction } from "@/app/admin/undangan/actions";
-import { culturalTemplates } from "@/lib/cultural-templates";
-import type { Invitation } from "@/lib/invitations-store";
+import { culturalTemplates } from "@/lib/content/cultural-templates";
+import type { Invitation } from "@/lib/stores/invitations-store";
 
 type InvitationEditorProps = {
   invitation?: Invitation;

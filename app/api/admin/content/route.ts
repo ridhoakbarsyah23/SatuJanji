@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   ADMIN_COOKIE_NAME,
   verifyAdminSessionToken,
-} from "@/lib/admin-auth";
+} from "@/lib/auth/admin-auth";
 import {
   createAdminItem,
   deleteAdminItem,
@@ -10,7 +10,7 @@ import {
   updateAdminItem,
   type AdminCollection,
   type AdminItem,
-} from "@/lib/admin-store";
+} from "@/lib/stores/admin-store";
 
 const collections = ["templates", "plans", "faqs"] as const;
 

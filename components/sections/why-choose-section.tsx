@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/ui/reveal";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { reasons } from "@/lib/site-content";
+import { reasons } from "@/lib/content/site-content";
 
 export function WhyChooseSection() {
   return (

@@ -1,3 +1,4 @@
+// Centralized WhatsApp links for customer-facing calls to action.
 const ADMIN_WHATSAPP_NUMBER = "6281390277240";
 
 export function createWhatsAppLink(message: string) {

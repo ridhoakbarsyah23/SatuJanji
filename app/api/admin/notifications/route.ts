@@ -2,14 +2,14 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   ADMIN_COOKIE_NAME,
   verifyAdminSessionToken,
-} from "@/lib/admin-auth";
+} from "@/lib/auth/admin-auth";
 import {
   addNotification,
   deleteNotification,
   getNotifications,
   updateNotification,
   type Notification,
-} from "@/lib/notifications-store";
+} from "@/lib/stores/notifications-store";
 
 async function requireAdminSession(request: NextRequest) {
   const sessionToken = request.cookies.get(ADMIN_COOKIE_NAME)?.value;

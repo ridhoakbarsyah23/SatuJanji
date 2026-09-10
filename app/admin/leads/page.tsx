@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AdminPanel, LeadsTable } from "@/components/admin/admin-content";
 import { AdminShell } from "@/components/admin/admin-shell";
 import { LeadActionDialog } from "@/components/admin/admin-action-dialog";
-import { getLeads } from "@/lib/leads-store";
+import { getLeads } from "@/lib/stores/leads-store";
 
 export const dynamic = "force-dynamic";
 

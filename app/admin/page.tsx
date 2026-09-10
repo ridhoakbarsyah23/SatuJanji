@@ -5,8 +5,8 @@ import { LeadsPreview } from "@/components/admin/LeadsPreview";
 import { QuickActionCard, type QuickAction } from "@/components/admin/QuickActionCard";
 import { StatsGrid, type StatCardItem } from "@/components/admin/StatCard";
 import { WelcomeCard } from "@/components/admin/WelcomeCard";
-import { getAdminStats } from "@/lib/admin-store";
-import { getLeads } from "@/lib/leads-store";
+import { getAdminStats } from "@/lib/stores/admin-store";
+import { getLeads } from "@/lib/stores/leads-store";
 
 export const dynamic = "force-dynamic";
 

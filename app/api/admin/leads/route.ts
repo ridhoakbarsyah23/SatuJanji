@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import {
   ADMIN_COOKIE_NAME,
   verifyAdminSessionToken,
-} from "@/lib/admin-auth";
+} from "@/lib/auth/admin-auth";
 import {
   addLead,
   deleteLead,
@@ -10,7 +10,7 @@ import {
   updateLead,
   type Lead,
   type LeadInput,
-} from "@/lib/leads-store";
+} from "@/lib/stores/leads-store";
 
 async function requireAdminSession(request: NextRequest) {
   const sessionToken = request.cookies.get(ADMIN_COOKIE_NAME)?.value;

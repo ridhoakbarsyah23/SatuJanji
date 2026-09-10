@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { heroHighlights } from "@/lib/site-content";
+import { heroHighlights } from "@/lib/content/site-content";
 
 export function HeroSection() {
   return (

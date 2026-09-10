@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CulturalInvitation } from "@/components/templates/cultural-invitation";
-import { getInvitationById, toCulturalTemplate } from "@/lib/invitations-store";
+import { getInvitationById, toCulturalTemplate } from "@/lib/stores/invitations-store";
 
 export const dynamic = "force-dynamic";
 

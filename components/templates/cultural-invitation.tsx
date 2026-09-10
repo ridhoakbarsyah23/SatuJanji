@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState, type CSSProperties, type FormEvent } from "react";
-import type { CulturalTemplate } from "@/lib/cultural-templates";
+import type { CulturalTemplate } from "@/lib/content/cultural-templates";
 
 type TemplateStyle = CSSProperties & {
   "--invite-ink": string;

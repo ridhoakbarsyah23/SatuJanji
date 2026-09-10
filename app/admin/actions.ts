@@ -7,8 +7,8 @@ import {
   deleteAdminItem,
   type AdminCollection,
   updateAdminItem,
-} from "@/lib/admin-store";
-import { addLead, deleteLead, updateLead } from "@/lib/leads-store";
+} from "@/lib/stores/admin-store";
+import { addLead, deleteLead, updateLead } from "@/lib/stores/leads-store";
 
 type ActionState = {
   ok: boolean;

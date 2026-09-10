@@ -1,3 +1,4 @@
+// Authentication primitives shared by middleware and admin API routes.
 export const ADMIN_COOKIE_NAME = "satujanji_admin";
 export const ADMIN_SESSION_MAX_AGE = 60 * 60 * 8;
 

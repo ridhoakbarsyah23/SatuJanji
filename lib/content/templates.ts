@@ -1,3 +1,4 @@
+// Template cards displayed on the public website.
 import type { LucideIcon } from "lucide-react";
 import { Flower2, Gem, Heart, Leaf, Sparkles, Stars } from "lucide-react";
 

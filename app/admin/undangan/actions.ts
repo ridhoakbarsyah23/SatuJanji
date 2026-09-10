@@ -6,8 +6,8 @@ import {
   saveInvitation,
   type InvitationInput,
   type InvitationStatus,
-} from "@/lib/invitations-store";
-import { readUploadedFiles, storePreweddingFile } from "@/lib/prewedding-storage";
+} from "@/lib/stores/invitations-store";
+import { readUploadedFiles, storePreweddingFile } from "@/lib/services/prewedding-storage";
 
 function readString(formData: FormData, name: string) {
   return String(formData.get(name) ?? "").trim();

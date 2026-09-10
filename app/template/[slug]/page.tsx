@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CulturalInvitation } from "@/components/templates/cultural-invitation";
-import { culturalTemplates, getCulturalTemplate } from "@/lib/cultural-templates";
+import { culturalTemplates, getCulturalTemplate } from "@/lib/content/cultural-templates";
 
 type TemplatePageProps = {
   params: Promise<{ slug: string }>;

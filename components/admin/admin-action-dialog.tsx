@@ -9,9 +9,9 @@ import {
   saveAdminItem,
   saveLead,
 } from "@/app/admin/actions";
-import { useToast } from "@/lib/toast-store";
-import type { AdminCollection } from "@/lib/admin-store";
-import type { Lead } from "@/lib/leads-store";
+import { useToast } from "@/lib/stores/toast-store";
+import type { AdminCollection } from "@/lib/stores/admin-store";
+import type { Lead } from "@/lib/stores/leads-store";
 
 type AdminActionDialogProps = {
   action: "add" | "edit";

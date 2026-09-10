@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { faqs } from "@/lib/site-content";
-import { templates } from "@/lib/templates";
+import { faqs } from "@/lib/content/site-content";
+import { templates } from "@/lib/content/templates";
 
 export type AdminCollection = "templates" | "plans" | "faqs";
 

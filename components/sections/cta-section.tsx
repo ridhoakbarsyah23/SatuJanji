@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { createWhatsAppLink } from "@/lib/services/whatsapp";
 
 export function CTASection() {
   return (

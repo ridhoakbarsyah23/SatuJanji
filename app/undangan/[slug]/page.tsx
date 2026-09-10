@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CulturalInvitation } from "@/components/templates/cultural-invitation";
-import { getInvitationBySlug, toCulturalTemplate } from "@/lib/invitations-store";
+import { getInvitationBySlug, toCulturalTemplate } from "@/lib/stores/invitations-store";
 
 export const dynamic = "force-dynamic";
 

@@ -6,7 +6,7 @@ import {
   getAdminCredentials,
   isAdminAuthConfigured,
   verifyAdminPassword,
-} from "@/lib/admin-auth";
+} from "@/lib/auth/admin-auth";
 
 export async function POST(request: Request) {
   const formData = await request.formData();

@@ -5,8 +5,8 @@ import {
   LeadActionDialog,
   LeadDeleteButton,
 } from "@/components/admin/admin-action-dialog";
-import type { AdminCollection } from "@/lib/admin-store";
-import type { Lead } from "@/lib/leads-store";
+import type { AdminCollection } from "@/lib/stores/admin-store";
+import type { Lead } from "@/lib/stores/leads-store";
 
 type AdminPanelProps = {
   title: string;

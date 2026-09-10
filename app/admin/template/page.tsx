@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AdminPanel, AdminRow } from "@/components/admin/admin-content";
 import { AdminShell } from "@/components/admin/admin-shell";
-import { getAdminItems } from "@/lib/admin-store";
+import { getAdminItems } from "@/lib/stores/admin-store";
 
 export const dynamic = "force-dynamic";
 

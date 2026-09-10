@@ -3,7 +3,7 @@ import path from "path";
 import {
   getCulturalTemplate,
   type CulturalTemplate,
-} from "@/lib/cultural-templates";
+} from "@/lib/content/cultural-templates";
 
 export type InvitationStatus = "draft" | "published";
 

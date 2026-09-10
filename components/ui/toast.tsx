@@ -14,7 +14,7 @@ import {
   useToast,
   type Toast,
   type ToastType,
-} from "@/lib/toast-store";
+} from "@/lib/stores/toast-store";
 
 const iconMap: Record<ToastType, LucideIcon> = {
   success: CheckCircle2,

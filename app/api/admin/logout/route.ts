@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ADMIN_COOKIE_NAME } from "@/lib/admin-auth";
+import { ADMIN_COOKIE_NAME } from "@/lib/auth/admin-auth";
 
 export function GET(request: Request) {
   const response = NextResponse.redirect(new URL("/", request.url), 303);

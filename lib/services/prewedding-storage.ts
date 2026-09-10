@@ -1,3 +1,4 @@
+// Upload adapter: Cloudinary in production and local files in development.
 import { createHash, randomUUID } from "crypto";
 import { promises as fs } from "fs";
 import path from "path";

@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/ui/reveal";
 import { IconBadge } from "@/components/ui/icon-badge";
-import { trustItems } from "@/lib/site-content";
+import { trustItems } from "@/lib/content/site-content";
 
 export function TrustBar() {
   return (

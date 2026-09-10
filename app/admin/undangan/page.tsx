@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Eye, FilePenLine, Plus, Send } from "lucide-react";
 import Link from "next/link";
 import { AdminShell } from "@/components/admin/admin-shell";
-import { getInvitations } from "@/lib/invitations-store";
+import { getInvitations } from "@/lib/stores/invitations-store";
 
 export const dynamic = "force-dynamic";
 

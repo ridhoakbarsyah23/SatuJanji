@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { MessageCircle, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { AuthShell } from "@/components/auth/auth-shell";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { createWhatsAppLink } from "@/lib/services/whatsapp";
 
 export const metadata: Metadata = {
   title: "Pemulihan Akses",

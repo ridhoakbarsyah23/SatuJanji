@@ -2,7 +2,7 @@ import { ArrowLeft, CheckCircle2, MessageCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { createWhatsAppLink } from "@/lib/services/whatsapp";
 
 type AuthShellProps = {
   eyebrow: string;

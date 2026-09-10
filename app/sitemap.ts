@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getInvitations } from "@/lib/invitations-store";
+import { getInvitations } from "@/lib/stores/invitations-store";
 
 const baseUrl = "https://satujanji.id";
 

@@ -1,3 +1,4 @@
+// Source of truth for the visual identity of each cultural template.
 export type CulturalTemplate = {
   slug: string;
   region: string;

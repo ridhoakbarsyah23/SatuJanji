@@ -1,6 +1,6 @@
 import { LayoutTemplate, MessageCircle } from "lucide-react";
 import Link from "next/link";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { createWhatsAppLink } from "@/lib/services/whatsapp";
 
 export function FloatingWhatsApp() {
   const whatsappLink = createWhatsAppLink(

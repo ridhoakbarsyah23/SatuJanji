@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, type ReactNode } from "react";
-import { useToast } from "@/lib/toast-store";
+import { useToast } from "@/lib/stores/toast-store";
 import { ToastContainer } from "@/components/ui/toast";
 import { Sidebar } from "@/components/admin/Sidebar";
 import { TopNavbar } from "@/components/admin/TopNavbar";

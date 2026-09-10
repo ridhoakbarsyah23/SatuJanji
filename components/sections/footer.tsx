@@ -6,7 +6,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { createWhatsAppLink } from "@/lib/services/whatsapp";
 
 const menu = [
   { label: "Template", href: "/#template" },

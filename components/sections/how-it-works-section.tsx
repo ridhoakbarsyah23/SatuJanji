@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/ui/reveal";
 import { IconBadge } from "@/components/ui/icon-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { steps } from "@/lib/site-content";
+import { steps } from "@/lib/content/site-content";
 
 export function HowItWorksSection() {
   return (
