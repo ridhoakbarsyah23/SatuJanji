@@ -1,6 +1,8 @@
 "use client";
 
+import { ArrowRight, BookHeart, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function WelcomeCard() {
   return (
@@ -8,76 +10,38 @@ export function WelcomeCard() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="admin-welcome relative overflow-hidden rounded-[24px] border border-[#ECE8E2] bg-white p-5 shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:p-6 xl:p-8"
+      className="relative overflow-hidden rounded-[28px] bg-[#171827] p-5 text-white shadow-[0_24px_70px_rgba(23,24,39,0.2)] sm:p-7 xl:p-9"
     >
-      <div className="relative z-10 grid gap-6 xl:grid-cols-[1fr_18rem] 2xl:grid-cols-[1fr_22rem] xl:items-center">
+      <div className="absolute -right-20 -top-24 size-72 rounded-full bg-[#D6AE62]/20 blur-3xl" aria-hidden="true" />
+      <div className="absolute -bottom-28 right-1/4 size-64 rounded-full bg-violet-500/10 blur-3xl" aria-hidden="true" />
+      <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
         <div>
-          <p className="text-sm font-semibold text-[#C79A4A]">Halo, Admin</p>
-          <h2
-            className="mt-3 max-w-2xl text-3xl font-semibold leading-tight tracking-normal text-[#111827] sm:text-4xl xl:text-[2.75rem]"
-            style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
-          >
-            Selamat datang kembali di ruang pengelolaan SatuJanji.
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-3 py-1.5 text-xs font-semibold text-[#E7C887]">
+            <Sparkles className="size-3.5" strokeWidth={1.8} aria-hidden="true" />
+            Selamat datang kembali
+          </span>
+          <h2 className="mt-5 max-w-2xl text-3xl font-bold leading-tight tracking-[-0.035em] sm:text-4xl xl:text-[2.7rem]">
+            Kelola setiap cerita istimewa dari satu tempat.
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#6B7280] sm:text-base">
-            Jaga informasi layanan tetap akurat dan tindak lanjuti setiap permintaan pelanggan dengan mudah.
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-white/60 sm:text-base">
+            Buat undangan, periksa detail acara, dan tanggapi permintaan pelanggan dengan alur yang lebih sederhana.
           </p>
+          <div className="mt-7 flex flex-col gap-3 min-[430px]:flex-row">
+            <Link href="/admin/undangan/baru" className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#D6AE62] px-5 text-sm font-bold text-[#171827] transition hover:-translate-y-0.5 hover:bg-[#E7C887]">
+              <BookHeart className="size-[18px]" strokeWidth={1.8} aria-hidden="true" />
+              Buat undangan
+            </Link>
+            <Link href="/admin/undangan" className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-5 text-sm font-semibold text-white transition hover:bg-white/[0.1]">
+              Lihat semua undangan <ArrowRight className="size-4" strokeWidth={1.8} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
-
-        <div className="hidden justify-end xl:flex">
-          <WeddingLineArt />
+        <div className="hidden size-44 place-items-center rounded-full border border-white/10 bg-white/[0.04] lg:grid xl:size-52">
+          <div className="grid size-28 place-items-center rounded-full border border-[#D6AE62]/30 bg-[#D6AE62]/10 text-[#E7C887] xl:size-32">
+            <BookHeart className="size-12" strokeWidth={1.25} aria-hidden="true" />
+          </div>
         </div>
       </div>
     </motion.section>
-  );
-}
-
-function WeddingLineArt() {
-  return (
-    <svg
-      viewBox="0 0 320 220"
-      className="h-40 w-60 text-[#C79A4A] 2xl:h-48 2xl:w-72"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M96 156c18-28 44-42 78-42s60 14 78 42"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity="0.35"
-      />
-      <path
-        d="M106 157h136c8 0 15 7 15 15v18H91v-18c0-8 7-15 15-15z"
-        stroke="#111827"
-        strokeWidth="2"
-        opacity="0.22"
-      />
-      <path
-        d="M160 45c18 0 33 15 33 33 0 33-33 48-33 48s-33-15-33-48c0-18 15-33 33-33z"
-        stroke="#111827"
-        strokeWidth="2"
-        opacity="0.28"
-      />
-      <path
-        d="M160 83c10-16 26-24 48-24 23 0 42 13 52 32"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity="0.32"
-      />
-      <path
-        d="M160 83c-10-16-26-24-48-24-23 0-42 13-52 32"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity="0.32"
-      />
-      <path
-        d="M233 42c11-3 18-10 21-21 3 11 10 18 21 21-11 3-18 10-21 21-3-11-10-18-21-21z"
-        fill="currentColor"
-        opacity="0.55"
-      />
-    </svg>
   );
 }

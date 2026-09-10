@@ -306,20 +306,13 @@ a {
 
 .admin-surface {
   background:
-    radial-gradient(circle at 95% 0%, rgba(199, 154, 74, 0.07), transparent 27rem),
-    #fafaf8;
+    radial-gradient(circle at 95% 0%, rgba(139, 92, 246, 0.05), transparent 30rem),
+    #f6f7fb;
 }
 
-.admin-welcome::after {
-  position: absolute;
-  right: -5rem;
-  bottom: -8rem;
-  width: 18rem;
-  height: 18rem;
-  border-radius: 50%;
-  background: rgba(199, 154, 74, 0.08);
-  content: "";
-  pointer-events: none;
+.admin-sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: #484959 #171827;
 }
 
 @media (max-width: 640px) {

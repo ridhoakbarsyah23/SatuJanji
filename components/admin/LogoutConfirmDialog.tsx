@@ -1,7 +1,8 @@
 "use client";
 
 import { LogOut, ShieldAlert, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { ModalLayer } from "@/components/admin/modal-layer";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
@@ -31,24 +32,21 @@ export function LogoutConfirmDialog({
         {children ?? (
           <>
             <LogOut className="size-4" aria-hidden="true" />
-            Logout
+            Keluar
           </>
         )}
       </button>
 
-      <AnimatePresence>
         {open ? (
+          <ModalLayer labelledBy="admin-logout-title" onClose={() => { if (!loggingOut) setOpen(false); }}>
           <motion.div
-            className="fixed inset-0 z-[180] grid place-items-center bg-[#111827]/45 px-5 py-6 backdrop-blur-sm"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="admin-logout-title"
+            className="fixed inset-0 grid place-items-center overflow-y-auto bg-[#111827]/45 px-4 py-4 backdrop-blur-sm sm:px-5 sm:py-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.section
-              className="w-full max-w-sm rounded-[20px] border border-[#ECE8E2] bg-white p-5 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)]"
+              className="max-h-[calc(100dvh-2rem)] w-full max-w-sm overflow-y-auto rounded-[20px] border border-[#ECE8E2] bg-white p-5 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)]"
               initial={{ opacity: 0, y: 12, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.98 }}
@@ -61,7 +59,7 @@ export function LogoutConfirmDialog({
                 <button
                   type="button"
                   className="focus-ring grid size-9 shrink-0 place-items-center rounded-xl text-[#6B7280] hover:bg-[#F7F3EE] hover:text-[#111827]"
-                  aria-label="Tutup konfirmasi logout"
+                  aria-label="Tutup konfirmasi keluar"
                   onClick={() => setOpen(false)}
                 >
                   <X className="size-4" aria-hidden="true" />
@@ -90,13 +88,13 @@ export function LogoutConfirmDialog({
                   disabled={loggingOut}
                   onClick={handleLogout}
                 >
-                  {loggingOut ? "Keluar..." : "Ya, logout"}
+                  {loggingOut ? "Keluar..." : "Ya, keluar"}
                 </button>
               </div>
             </motion.section>
           </motion.div>
+          </ModalLayer>
         ) : null}
-      </AnimatePresence>
     </>
   );
 }

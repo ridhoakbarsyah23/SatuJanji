@@ -12,7 +12,7 @@ type InvitationEditorProps = {
 };
 
 const inputClass =
-  "mt-2 min-h-11 w-full rounded-xl border border-[#DED8CF] bg-white px-3.5 py-2.5 text-sm text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#C79A4A] focus:ring-4 focus:ring-[#C79A4A]/10";
+  "mt-2 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#C79A4A] focus:ring-4 focus:ring-[#C79A4A]/10";
 const labelClass = "text-sm font-semibold text-[#374151]";
 
 const defaultStory = [
@@ -23,21 +23,21 @@ const defaultStory = [
 
 export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
   const story = invitation?.story.length === 3 ? invitation.story : defaultStory;
-  const [coverPreview, setCoverPreview] = useState(invitation?.coverImage ?? "");
-  const [galleryPreview, setGalleryPreview] = useState(invitation?.galleryImages ?? []);
+  const [coverPratinjau, setCoverPratinjau] = useState(invitation?.coverImage ?? "");
+  const [galleryPratinjau, setGalleryPratinjau] = useState(invitation?.galleryImages ?? []);
 
   function previewCover(file?: File) {
     if (!file) return;
-    if (coverPreview.startsWith("blob:")) URL.revokeObjectURL(coverPreview);
-    setCoverPreview(URL.createObjectURL(file));
+    if (coverPratinjau.startsWith("blob:")) URL.revokeObjectURL(coverPratinjau);
+    setCoverPratinjau(URL.createObjectURL(file));
   }
 
   function previewGallery(files: FileList | null) {
     if (!files?.length) return;
-    galleryPreview.forEach((source) => {
+    galleryPratinjau.forEach((source) => {
       if (source.startsWith("blob:")) URL.revokeObjectURL(source);
     });
-    setGalleryPreview(Array.from(files).slice(0, 6).map((file) => URL.createObjectURL(file)));
+    setGalleryPratinjau(Array.from(files).slice(0, 6).map((file) => URL.createObjectURL(file)));
   }
 
   return (
@@ -53,16 +53,16 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
       <EditorSection
         icon={Palette}
         title="Identitas undangan"
-        description="Atur alamat publik, template, dan status penayangan."
+        description="Pilih desain dan tentukan kapan undangan dapat dibuka oleh tamu."
       >
         <div className="grid gap-4 md:grid-cols-2">
           <label className={labelClass}>
-            Slug URL
+            Alamat undangan
             <input className={inputClass} name="slug" defaultValue={invitation?.slug} placeholder="arga-ratri" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" required />
-            <span className="mt-1.5 block text-xs font-normal text-[#6B7280]">Contoh URL: /undangan/arga-ratri</span>
+            <span className="mt-1.5 block text-xs font-normal text-[#6B7280]">Contoh alamat: /undangan/arga-ratri</span>
           </label>
           <label className={labelClass}>
-            Template
+            Pilih desain
             <select className={inputClass} name="templateSlug" defaultValue={invitation?.templateSlug ?? culturalTemplates[0].slug} required>
               {culturalTemplates.map((template) => (
                 <option key={template.slug} value={template.slug}>{template.title} — {template.region}</option>
@@ -72,14 +72,14 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
           <label className={labelClass}>
             Status
             <select className={inputClass} name="status" defaultValue={invitation?.status ?? "draft"}>
-              <option value="draft">Draft — hanya dapat dipreview admin</option>
-              <option value="published">Terbit — dapat dibuka publik</option>
+              <option value="draft">Draft - simpan dulu, belum dibagikan</option>
+              <option value="published">Terbit - dapat dibuka oleh tamu</option>
             </select>
           </label>
         </div>
       </EditorSection>
 
-      <EditorSection icon={HeartHandshake} title="Pasangan" description="Informasi utama yang tampil pada cover dan bagian mempelai.">
+      <EditorSection icon={HeartHandshake} title="Pasangan" description="Nama dan informasi pasangan yang akan dilihat oleh tamu.">
         <div className="grid gap-4 md:grid-cols-2">
           <TextField name="groom" label="Nama mempelai pria" defaultValue={invitation?.groom} placeholder="Arga" required />
           <TextField name="bride" label="Nama mempelai wanita" defaultValue={invitation?.bride} placeholder="Ratri" required />
@@ -114,7 +114,7 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
         <label className={labelClass}>
           Foto utama
           <input
-            className={`${inputClass} cursor-pointer file:mr-3 file:rounded-lg file:border-0 file:bg-[#F7F3EE] file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[#C79A4A]`}
+            className={`${inputClass} cursor-pointer file:mr-3 file:rounded-lg file:border-0 file:bg-violet-50 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[#C79A4A]`}
             type="file"
             name="coverImageFile"
             accept="image/jpeg,image/png,image/webp"
@@ -123,20 +123,20 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
           <span className="mt-1.5 block text-xs font-normal text-[#6B7280]">Foto baru akan menggantikan foto utama yang tersimpan.</span>
         </label>
 
-        {coverPreview ? (
+        {coverPratinjau ? (
           <div
-            className="aspect-[16/7] min-h-48 overflow-hidden rounded-2xl border border-[#ECE8E2] bg-[#F7F3EE] bg-cover bg-center"
-            style={{ backgroundImage: `linear-gradient(rgba(17,24,39,.2), rgba(17,24,39,.35)), url(${JSON.stringify(coverPreview)})` }}
+            className="aspect-[16/7] min-h-48 overflow-hidden rounded-2xl border border-[#ECE8E2] bg-violet-50 bg-cover bg-center"
+            style={{ backgroundImage: `linear-gradient(rgba(17,24,39,.2), rgba(17,24,39,.35)), url(${JSON.stringify(coverPratinjau)})` }}
             role="img"
-            aria-label="Preview foto utama prewedding"
+            aria-label="Pratinjau foto utama prewedding"
           />
         ) : (
-          <div className="grid min-h-40 place-items-center rounded-2xl border border-dashed border-[#DED8CF] bg-[#FAFAF8] px-4 text-center text-sm text-[#9CA3AF]">Preview foto utama akan tampil di sini.</div>
+          <div className="grid min-h-40 place-items-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-4 text-center text-sm text-[#9CA3AF]">Pratinjau foto utama akan tampil di sini.</div>
         )}
 
         {invitation?.coverImage ? (
           <label className="flex items-center gap-2 text-sm text-[#6B7280]">
-            <input type="checkbox" name="removeCoverImage" className="size-4 accent-[#C79A4A]" onChange={(event) => setCoverPreview(event.target.checked ? "" : invitation.coverImage ?? "")} />
+            <input type="checkbox" name="removeCoverImage" className="size-4 accent-[#C79A4A]" onChange={(event) => setCoverPratinjau(event.target.checked ? "" : invitation.coverImage ?? "")} />
             Hapus foto utama yang tersimpan
           </label>
         ) : null}
@@ -144,7 +144,7 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
         <label className={labelClass}>
           Foto galeri
           <input
-            className={`${inputClass} cursor-pointer file:mr-3 file:rounded-lg file:border-0 file:bg-[#F7F3EE] file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[#C79A4A]`}
+            className={`${inputClass} cursor-pointer file:mr-3 file:rounded-lg file:border-0 file:bg-violet-50 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-[#C79A4A]`}
             type="file"
             name="galleryImageFiles"
             accept="image/jpeg,image/png,image/webp"
@@ -154,15 +154,15 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
           <span className="mt-1.5 block text-xs font-normal text-[#6B7280]">Pilih maksimal enam foto. Pilihan baru akan menggantikan galeri lama.</span>
         </label>
 
-        {galleryPreview.length ? (
+        {galleryPratinjau.length ? (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {galleryPreview.map((image, index) => (
+            {galleryPratinjau.map((image, index) => (
               <div
                 key={`${image}-${index}`}
-                className="aspect-[4/3] rounded-xl border border-[#ECE8E2] bg-[#F7F3EE] bg-cover bg-center"
+                className="aspect-[4/3] rounded-xl border border-[#ECE8E2] bg-violet-50 bg-cover bg-center"
                 style={{ backgroundImage: `url(${JSON.stringify(image)})` }}
                 role="img"
-                aria-label={`Preview foto galeri ${index + 1}`}
+                aria-label={`Pratinjau foto galeri ${index + 1}`}
               />
             ))}
           </div>
@@ -170,16 +170,16 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
 
         {invitation?.galleryImages?.length ? (
           <label className="flex items-center gap-2 text-sm text-[#6B7280]">
-            <input type="checkbox" name="removeGalleryImages" className="size-4 accent-[#C79A4A]" onChange={(event) => setGalleryPreview(event.target.checked ? [] : invitation.galleryImages ?? [])} />
+            <input type="checkbox" name="removeGalleryImages" className="size-4 accent-[#C79A4A]" onChange={(event) => setGalleryPratinjau(event.target.checked ? [] : invitation.galleryImages ?? [])} />
             Hapus seluruh foto galeri yang tersimpan
           </label>
         ) : null}
       </EditorSection>
 
-      <EditorSection icon={MapPin} title="Kisah dan galeri" description="Tiga momen utama membentuk timeline cerita pasangan.">
+      <EditorSection icon={MapPin} title="Cerita perjalanan" description="Ceritakan tiga momen istimewa dalam perjalanan pasangan.">
         <div className="grid gap-4 lg:grid-cols-3">
           {story.map((item, index) => (
-            <div key={index} className="rounded-2xl border border-[#ECE8E2] bg-[#FAFAF8] p-4">
+            <div key={index} className="rounded-2xl border border-[#ECE8E2] bg-slate-50 p-4">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.14em] text-[#C79A4A]">Momen {index + 1}</p>
               <TextField name={`storyYear${index}`} label="Tahun" defaultValue={item.year} placeholder="2024" required />
               <TextField name={`storyTitle${index}`} label="Judul" defaultValue={item.title} placeholder="Pertemuan" required />
@@ -187,7 +187,7 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
             </div>
           ))}
         </div>
-        <TextField name="galleryLabels" label="Label galeri" defaultValue={invitation?.galleryLabels.join(", ") ?? "Bahagia, Bersama, Selamanya"} placeholder="Bahagia, Bersama, Selamanya" />
+        <TextField name="galleryLabels" label="Judul foto galeri (pisahkan dengan koma)" defaultValue={invitation?.galleryLabels.join(", ") ?? "Bahagia, Bersama, Selamanya"} placeholder="Bahagia, Bersama, Selamanya" />
       </EditorSection>
 
       <div className="sticky bottom-3 z-10 flex justify-end rounded-2xl border border-[#ECE8E2] bg-white/95 p-3 shadow-[0_14px_45px_rgba(17,24,39,0.12)] backdrop-blur">
@@ -202,9 +202,9 @@ export function InvitationEditor({ invitation, error }: InvitationEditorProps) {
 
 function EditorSection({ icon: Icon, title, description, children }: { icon: typeof Palette; title: string; description: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.04)] sm:p-6">
+    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.04)] sm:p-6">
       <div className="mb-5 flex items-start gap-3">
-        <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-[#C79A4A]/15 bg-[#F7F3EE] text-[#C79A4A]">
+        <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-[#C79A4A]/15 bg-violet-50 text-[#C79A4A]">
           <Icon className="size-5" strokeWidth={1.75} aria-hidden="true" />
         </span>
         <div><h2 className="font-semibold text-[#111827]">{title}</h2><p className="mt-1 text-sm leading-6 text-[#6B7280]">{description}</p></div>

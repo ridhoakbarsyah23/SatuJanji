@@ -1,63 +1,33 @@
-"use client";
+import { ArrowRight, ClipboardCheck, FileSearch, MessageCircleMore } from "lucide-react";
+import Link from "next/link";
 
-import { CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
-
-const groups = [
-  {
-    label: "Hari Ini",
-    items: ["Template Elegance dibuat", "Paket Premium diperbarui"],
-  },
-  {
-    label: "Kemarin",
-    items: ["FAQ baru ditambahkan", "Permintaan konsultasi diterima"],
-  },
+const steps = [
+  { title: "Periksa permintaan baru", description: "Hubungi calon pasangan yang baru mengisi formulir.", href: "/admin/leads", icon: MessageCircleMore },
+  { title: "Lengkapi data undangan", description: "Pastikan nama, waktu, lokasi, dan foto sudah benar.", href: "/admin/undangan", icon: ClipboardCheck },
+  { title: "Periksa sebelum diterbitkan", description: "Buka pratinjau sebelum membagikan undangan ke tamu.", href: "/admin/undangan", icon: FileSearch },
 ];
 
 export function ActivityTimeline() {
   return (
-    <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-6">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h2 className="text-lg font-semibold text-[#111827]">Recent Activity</h2>
-          <p className="mt-1 text-sm text-[#6B7280]">
-            Ringkasan aktivitas pengelolaan terbaru.
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-6 grid gap-6">
-        {groups.map((group, groupIndex) => (
-          <div key={group.label}>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#9CA3AF]">
-              {group.label}
-            </p>
-            <div className="relative grid gap-4 pl-7">
-              <span className="absolute bottom-2 left-[9px] top-2 w-px bg-[#ECE8E2]" />
-              {group.items.map((item, itemIndex) => (
-                <motion.div
-                  key={item}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.25,
-                    delay: groupIndex * 0.08 + itemIndex * 0.04,
-                    ease: "easeOut",
-                  }}
-                  className="relative"
-                >
-                  <span className="absolute -left-7 top-0 grid size-5 place-items-center rounded-full bg-green-50 text-[#22C55E] ring-4 ring-white">
-                    <CheckCircle2 className="size-3.5" aria-hidden="true" />
-                  </span>
-                  <p className="break-words text-sm font-medium text-[#111827]">
-                    {item}
-                  </p>
-                  <p className="mt-1 text-xs text-[#6B7280]">Sinkron otomatis</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        ))}
+    <section className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_10px_35px_rgba(15,23,42,0.045)] sm:p-6">
+      <h2 className="text-lg font-bold tracking-tight text-slate-950">Alur kerja singkat</h2>
+      <p className="mt-1 text-sm text-slate-500">Tiga langkah agar pekerjaan tetap teratur.</p>
+      <div className="mt-5 grid gap-2">
+        {steps.map((step, index) => {
+          const Icon = step.icon;
+          return (
+            <Link key={step.title} href={step.href} className="focus-ring group flex items-center gap-3 rounded-2xl p-3 transition hover:bg-slate-50">
+              <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-slate-100 text-slate-600 transition group-hover:bg-slate-900 group-hover:text-white">
+                <Icon className="size-[18px]" strokeWidth={1.8} aria-hidden="true" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-bold text-slate-900"><span className="mr-2 text-slate-300">0{index + 1}</span>{step.title}</span>
+                <span className="mt-0.5 block text-xs leading-5 text-slate-500">{step.description}</span>
+              </span>
+              <ArrowRight className="size-4 shrink-0 text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-slate-700" aria-hidden="true" />
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

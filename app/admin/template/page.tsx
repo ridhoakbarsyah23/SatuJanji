@@ -17,7 +17,7 @@ export default async function AdminTemplatePage() {
     <AdminShell>
       <AdminPanel
         title="Kelola Template"
-        description="Atur nama, tema, tag, dan status template yang tampil di landing."
+        description="Tambah atau perbarui nama, keterangan, dan status pilihan desain undangan."
         entity="Template"
         collection="templates"
       >

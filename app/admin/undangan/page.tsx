@@ -7,7 +7,7 @@ import { getInvitations } from "@/lib/stores/invitations-store";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Kelola Undangan",
+  title: "Daftar Undangan",
   description: "Buat, preview, dan terbitkan undangan digital SatuJanji.",
 };
 
@@ -20,12 +20,12 @@ export default async function InvitationsPage({
 
   return (
     <AdminShell>
-      <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-6">
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#C79A4A]">Workspace Undangan</p>
-            <h1 className="mt-2 text-xl font-semibold text-[#111827] sm:text-2xl">Kelola Undangan</h1>
-            <p className="mt-2 max-w-2xl text-sm leading-7 text-[#6B7280]">Buat draft, periksa hasil desain, lalu terbitkan undangan melalui alamat publik yang unik.</p>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#C79A4A]">Undangan digital</p>
+            <h1 className="mt-2 text-xl font-semibold text-[#111827] sm:text-2xl">Daftar Undangan</h1>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-[#6B7280]">Simpan sebagai draft, periksa tampilannya, lalu terbitkan untuk dibagikan kepada tamu.</p>
           </div>
           <Link href="/admin/undangan/baru" className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#111827] px-4 text-sm font-semibold text-white transition hover:bg-[#C79A4A]">
             <Plus className="size-[18px]" strokeWidth={1.75} aria-hidden="true" />
@@ -39,7 +39,7 @@ export default async function InvitationsPage({
 
         <div className="mt-6 grid gap-3">
           {invitations.map((invitation) => (
-            <article key={invitation.id} className="rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4 sm:p-5">
+            <article key={invitation.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
@@ -51,14 +51,14 @@ export default async function InvitationsPage({
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:flex">
                   <Link href={`/admin/undangan/${invitation.id}/preview`} className="focus-ring inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-[#DED8CF] bg-white px-3 text-sm font-semibold text-[#374151] transition hover:border-[#C79A4A]/40 hover:text-[#C79A4A]">
-                    <Eye className="size-4" strokeWidth={1.75} aria-hidden="true" /> Preview
+                    <Eye className="size-4" strokeWidth={1.75} aria-hidden="true" /> Lihat hasil
                   </Link>
                   <Link href={`/admin/undangan/${invitation.id}/edit`} className="focus-ring inline-flex min-h-10 items-center justify-center gap-2 rounded-xl border border-[#DED8CF] bg-white px-3 text-sm font-semibold text-[#374151] transition hover:border-[#C79A4A]/40 hover:text-[#C79A4A]">
-                    <FilePenLine className="size-4" strokeWidth={1.75} aria-hidden="true" /> Edit
+                    <FilePenLine className="size-4" strokeWidth={1.75} aria-hidden="true" /> Ubah data
                   </Link>
                   {invitation.status === "published" ? (
                     <Link href={`/undangan/${invitation.slug}`} target="_blank" className="focus-ring col-span-2 inline-flex min-h-10 items-center justify-center gap-2 rounded-xl bg-[#111827] px-3 text-sm font-semibold text-white transition hover:bg-[#C79A4A]">
-                      <Send className="size-4" strokeWidth={1.75} aria-hidden="true" /> Buka Publik
+                      <Send className="size-4" strokeWidth={1.75} aria-hidden="true" /> Buka untuk tamu
                     </Link>
                   ) : null}
                 </div>

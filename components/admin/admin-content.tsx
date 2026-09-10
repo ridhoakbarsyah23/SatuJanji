@@ -35,11 +35,12 @@ export function AdminPanel({
   children,
 }: AdminPanelProps) {
   return (
-    <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.045)] sm:p-6">
+    <section className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_10px_35px_rgba(15,23,42,0.045)]">
+      <div className="p-5 sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
-          <h2 className="text-lg font-semibold text-[#111827] sm:text-xl">{title}</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#6B7280]">
+          <h2 className="text-xl font-bold tracking-tight text-slate-950 sm:text-2xl">{title}</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-500">
             {description}
           </p>
         </div>
@@ -52,7 +53,8 @@ export function AdminPanel({
             />
           ) : null)}
       </div>
-      <div className="mt-6">{children}</div>
+      </div>
+      <div className="border-t border-slate-100 bg-slate-50/50 p-4 sm:p-6">{children}</div>
     </section>
   );
 }
@@ -66,7 +68,7 @@ export function AdminRow({
   collection,
 }: AdminRowProps) {
   return (
-    <article className="flex flex-col gap-4 rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4 transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:flex-row sm:items-center sm:justify-between">
+    <article className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 transition duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_15px_40px_rgba(15,23,42,0.07)] sm:flex-row sm:items-center sm:justify-between">
       <div className="min-w-0">
         <h3 className="break-words font-semibold text-[#111827]">{title}</h3>
         <p className="mt-1 text-sm leading-6 text-[#6B7280] sm:line-clamp-2">
@@ -139,8 +141,8 @@ export function LeadsTable({ leads }: { leads: Lead[] }) {
         ))}
       </div>
 
-      <div className="hidden overflow-hidden rounded-[20px] border border-[#ECE8E2] md:block">
-        <table className="w-full text-left text-sm">
+      <div className="hidden overflow-x-auto rounded-[20px] border border-[#ECE8E2] md:block">
+        <table className="w-full min-w-[800px] text-left text-sm">
           <thead className="bg-[#FAFAF8] text-xs font-semibold uppercase tracking-[0.12em] text-[#6B7280]">
           <tr>
             <th className="px-4 py-3">Nama</th>
@@ -179,13 +181,18 @@ export function LeadsTable({ leads }: { leads: Lead[] }) {
 }
 
 export function StatusBadge({ status }: { status: string }) {
-  const isActive = status === "Aktif";
+  const tone =
+    status === "Aktif" || status === "Selesai"
+      ? "bg-emerald-50 text-emerald-700 ring-emerald-600/10"
+      : status === "Baru"
+        ? "bg-violet-50 text-violet-700 ring-violet-600/10"
+        : status === "Dihubungi"
+          ? "bg-sky-50 text-sky-700 ring-sky-600/10"
+          : "bg-amber-50 text-amber-700 ring-amber-600/10";
 
   return (
     <span
-      className={`inline-flex shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
-        isActive ? "bg-green-50 text-[#22C55E]" : "bg-[#F7F3EE] text-[#C79A4A]"
-      }`}
+      className={`inline-flex shrink-0 rounded-full px-3 py-1 text-xs font-bold ring-1 ring-inset ${tone}`}
     >
       {status}
     </span>

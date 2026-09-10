@@ -16,16 +16,16 @@ export default function AdminSettingsPage() {
       <SettingsSurface
         eyebrow="Pengaturan"
         title="Pengaturan Pengelolaan"
-        description="Kelola preferensi tampilan, sumber informasi, dan alur kerja operasional SatuJanji."
+        description="Kenali tampilan dan menu yang tersedia untuk mengelola layanan SatuJanji."
         cards={[
           {
             title: "Preferensi Tampilan",
-            description: "Antarmuka menggunakan palet emas dan krem untuk menjaga tampilan yang hangat dan konsisten.",
+            description: "Navigasi gelap dan kartu berwarna membantu kamu menemukan menu dan membaca ringkasan dengan mudah.",
             icon: Palette,
           },
           {
             title: "Pengelolaan Informasi",
-            description: "Kelola template, paket, FAQ, dan permintaan pelanggan melalui menu yang tersedia.",
+            description: "Kelola desain undangan, paket, pertanyaan umum, dan permintaan pelanggan melalui menu yang tersedia.",
             icon: Database,
           },
           {

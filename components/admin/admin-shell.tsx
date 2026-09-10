@@ -35,12 +35,12 @@ export function AdminShell({ children }: AdminShellProps) {
   }, [searchParams, addToast]);
 
   return (
-    <main className="admin-surface min-h-svh overflow-x-hidden bg-[#FAFAF8] font-sans text-[#111827]">
+    <main className="admin-surface min-h-svh overflow-x-hidden bg-[#F6F7FB] font-sans text-slate-900">
       <div className="flex min-h-svh">
         <Sidebar />
         <div className="relative min-w-0 flex-1 overflow-x-hidden">
           <TopNavbar />
-          <div className="mx-auto w-full max-w-[1440px] px-3 py-4 min-[380px]:px-4 sm:px-6 sm:py-6 lg:px-6 lg:py-6 xl:px-8 xl:py-8">
+          <div className="mx-auto w-full max-w-[1520px] px-3 py-5 min-[380px]:px-4 sm:px-6 sm:py-7 lg:px-7 xl:px-10 xl:py-9">
             {children}
           </div>
           <ToastContainer />

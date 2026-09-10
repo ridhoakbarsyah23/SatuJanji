@@ -10,7 +10,7 @@ export default async function NewInvitationPage({ searchParams }: { searchParams
   return (
     <AdminShell>
       <div className="mb-5">
-        <Link href="/admin/undangan" className="focus-ring rounded-md text-sm font-semibold text-[#6B7280] hover:text-[#C79A4A]">← Kembali ke daftar</Link>
+        <Link href="/admin/undangan" className="focus-ring rounded-md text-sm font-semibold text-[#6B7280] hover:text-[#C79A4A]">Kembali ke daftar undangan</Link>
         <h1 className="mt-3 text-2xl font-semibold text-[#111827]">Buat Undangan Baru</h1>
         <p className="mt-2 text-sm text-[#6B7280]">Simpan sebagai draft untuk memeriksa desain sebelum diterbitkan.</p>
       </div>

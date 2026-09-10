@@ -6,6 +6,7 @@ import { QuickActionCard, type QuickAction } from "@/components/admin/QuickActio
 import { StatsGrid, type StatCardItem } from "@/components/admin/StatCard";
 import { WelcomeCard } from "@/components/admin/WelcomeCard";
 import { getAdminStats } from "@/lib/stores/admin-store";
+import { getInvitations } from "@/lib/stores/invitations-store";
 import { getLeads } from "@/lib/stores/leads-store";
 
 export const dynamic = "force-dynamic";
@@ -23,14 +24,14 @@ const quickLinks = [
     icon: "invitation",
   },
   {
-    title: "Kelola Template",
-    description: "Perbarui koleksi desain undangan yang ditampilkan kepada pelanggan.",
+    title: "Atur Template",
+    description: "Perbarui pilihan desain yang bisa digunakan untuk undangan.",
     href: "/admin/template",
     icon: "template",
   },
   {
-    title: "Kelola Paket",
-    description: "Atur pilihan layanan dan manfaat yang ditawarkan.",
+    title: "Atur Paket Harga",
+    description: "Sesuaikan layanan dan manfaat pada setiap paket.",
     href: "/admin/paket",
     icon: "package",
   },
@@ -43,32 +44,35 @@ const quickLinks = [
 ] satisfies QuickAction[];
 
 export default async function AdminDashboardPage() {
-  const leads = await getLeads();
-  const adminStats = await getAdminStats();
+  const [leads, adminStats, invitations] = await Promise.all([
+    getLeads(),
+    getAdminStats(),
+    getInvitations(),
+  ]);
   const stats: StatCardItem[] = [
     {
-      label: "Template",
-      value: adminStats.templates,
-      trend: "Total tersedia",
-      icon: "template",
+      label: "Undangan",
+      value: invitations.length,
+      helper: "Total undangan tersimpan",
+      icon: "invitation",
     },
     {
-      label: "Paket",
-      value: adminStats.plans,
-      trend: "Total tersedia",
-      icon: "package",
-    },
-    {
-      label: "FAQ",
-      value: adminStats.faqs,
-      trend: "Total tersedia",
-      icon: "faq",
+      label: "Sudah terbit",
+      value: invitations.filter((item) => item.status === "published").length,
+      helper: "Dapat dibuka oleh tamu",
+      icon: "published",
     },
     {
       label: "Permintaan",
       value: leads.length,
-      trend: "Total masuk",
-      icon: "leads",
+      helper: "Konsultasi pelanggan masuk",
+      icon: "requests",
+    },
+    {
+      label: "Template",
+      value: adminStats.templates,
+      helper: "Pilihan desain tersedia",
+      icon: "template",
     },
   ];
 
@@ -80,9 +84,9 @@ export default async function AdminDashboardPage() {
 
         <section>
           <div>
-            <h2 className="text-lg font-semibold text-[#111827]">Aksi Cepat</h2>
-            <p className="mt-1 text-sm text-[#6B7280]">
-              Buka area pengelolaan utama dengan cepat.
+            <h2 className="text-lg font-bold tracking-tight text-slate-950">Mulai dari sini</h2>
+            <p className="mt-1 text-sm text-slate-500">
+              Pilih pekerjaan yang ingin kamu lakukan.
             </p>
           </div>
 

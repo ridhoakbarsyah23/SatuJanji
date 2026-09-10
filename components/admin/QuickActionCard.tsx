@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ArrowUpRight,
   BookHeart,
   LayoutTemplate,
   PackageCheck,
@@ -15,6 +16,14 @@ export type QuickAction = {
   description: string;
   href: string;
   icon: "invitation" | "template" | "package" | "faq" | "leads";
+};
+
+const actionTones = {
+  invitation: "bg-violet-50 text-violet-600 group-hover:bg-violet-600",
+  template: "bg-sky-50 text-sky-600 group-hover:bg-sky-600",
+  package: "bg-amber-50 text-amber-600 group-hover:bg-amber-500",
+  faq: "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600",
+  leads: "bg-rose-50 text-rose-600 group-hover:bg-rose-600",
 };
 
 const actionIcons = {
@@ -43,19 +52,20 @@ export function QuickActionCard({
     >
       <Link
         href={action.href}
-        className="focus-ring group flex h-full items-start gap-3 rounded-[20px] border border-[#ECE8E2] bg-white p-4 shadow-[0_14px_40px_rgba(17,24,39,0.045)] transition duration-300 hover:border-[#C79A4A]/35 hover:shadow-[0_24px_70px_rgba(17,24,39,0.08)] sm:gap-4 sm:p-5"
+        className="focus-ring group relative flex h-full items-start gap-4 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_10px_35px_rgba(15,23,42,0.045)] transition duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_20px_50px_rgba(15,23,42,0.09)]"
       >
-        <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-[#F7F3EE] text-[#C79A4A] transition group-hover:bg-[#C79A4A] group-hover:text-white sm:size-12">
-          <Icon className="size-[22px]" aria-hidden="true" />
+        <span className={`grid size-12 shrink-0 place-items-center rounded-2xl transition duration-300 group-hover:text-white ${actionTones[action.icon]}`}>
+          <Icon className="size-[22px]" strokeWidth={1.8} aria-hidden="true" />
         </span>
         <span className="min-w-0">
-          <span className="block text-base font-semibold text-[#111827]">
+          <span className="block pr-7 text-base font-bold text-slate-950">
             {action.title}
           </span>
-          <span className="mt-2 block break-words text-sm leading-6 text-[#6B7280]">
+          <span className="mt-1.5 block break-words text-sm leading-6 text-slate-500">
             {action.description}
           </span>
         </span>
+        <ArrowUpRight className="absolute right-5 top-5 size-4 text-slate-300 transition group-hover:text-slate-700" strokeWidth={1.8} aria-hidden="true" />
       </Link>
     </motion.div>
   );

@@ -1,17 +1,20 @@
 import type { Lead } from "@/lib/stores/leads-store";
 import { EmptyState } from "@/components/admin/EmptyState";
 import { StatusBadge } from "@/components/admin/admin-content";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function LeadsPreview({ leads }: { leads: Lead[] }) {
   const latestLeads = leads.slice(0, 5);
 
   return (
-    <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-6 shadow-[0_14px_40px_rgba(17,24,39,0.045)]">
+    <section className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_10px_35px_rgba(15,23,42,0.045)] sm:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-[#111827]">Permintaan Terbaru</h2>
-          <p className="mt-1 text-sm text-[#6B7280]">Lima calon pelanggan terbaru.</p>
+          <h2 className="text-lg font-bold tracking-tight text-slate-950">Permintaan terbaru</h2>
+          <p className="mt-1 text-sm text-slate-500">Calon pasangan yang perlu ditindaklanjuti.</p>
         </div>
+        <Link href="/admin/leads" className="focus-ring inline-flex items-center gap-1.5 self-start rounded-lg text-sm font-bold text-violet-600 hover:text-violet-700">Lihat semua <ArrowRight className="size-4" aria-hidden="true" /></Link>
       </div>
 
       <div className="mt-6">
@@ -71,9 +74,9 @@ export function LeadsPreview({ leads }: { leads: Lead[] }) {
           </>
         ) : (
           <EmptyState
-            title="Belum ada leads."
-            description="Bagikan website agar mulai menerima calon pelanggan."
-            actionLabel="Lihat Landing Page"
+            title="Belum ada permintaan konsultasi"
+            description="Bagikan website untuk mulai menerima pertanyaan dari calon pasangan."
+            actionLabel="Buka website"
             actionHref="/"
           />
         )}

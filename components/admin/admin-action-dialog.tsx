@@ -12,6 +12,7 @@ import {
 import { useToast } from "@/lib/stores/toast-store";
 import type { AdminCollection } from "@/lib/stores/admin-store";
 import type { Lead } from "@/lib/stores/leads-store";
+import { ModalLayer } from "@/components/admin/modal-layer";
 
 type AdminActionDialogProps = {
   action: "add" | "edit";
@@ -69,7 +70,7 @@ export function AdminActionDialog({
         <button
           type="button"
           className="focus-ring grid size-10 place-items-center rounded-xl border border-[#ECE8E2] bg-white text-[#6B7280] transition hover:border-[#C79A4A]/30 hover:bg-[#F7F3EE] hover:text-[#C79A4A]"
-          aria-label={`Edit ${title}`}
+          aria-label={`Ubah ${title}`}
           onClick={() => setOpen(true)}
         >
           <Pencil className="size-4" aria-hidden="true" />
@@ -86,11 +87,9 @@ export function AdminActionDialog({
       )}
 
       {open ? (
+        <ModalLayer labelledBy={`${action}-${entity}-title`} onClose={() => setOpen(false)}>
         <div
           className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-[#111827]/45 px-4 py-4 backdrop-blur-sm sm:px-5 sm:py-6"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={`${action}-${entity}-title`}
         >
           <section className="max-h-[calc(100svh-2rem)] w-full max-w-lg overflow-y-auto rounded-[20px] border border-[#ECE8E2] bg-white p-4 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)] sm:p-6">
             <DialogHeader
@@ -132,6 +131,7 @@ export function AdminActionDialog({
             </form>
           </section>
         </div>
+        </ModalLayer>
       ) : null}
 
     </>
@@ -202,7 +202,7 @@ export function LeadActionDialog({
         <button
           type="button"
           className="focus-ring grid size-10 place-items-center rounded-xl border border-[#ECE8E2] bg-white text-[#6B7280] transition hover:border-[#C79A4A]/30 hover:bg-[#F7F3EE] hover:text-[#C79A4A]"
-          aria-label={`Edit ${lead?.name ?? "lead"}`}
+          aria-label={`Ubah ${lead?.name ?? "permintaan"}`}
           onClick={() => setOpen(true)}
         >
           <Pencil className="size-4" aria-hidden="true" />
@@ -219,11 +219,9 @@ export function LeadActionDialog({
       )}
 
       {open ? (
+        <ModalLayer labelledBy={`${action}-Permintaan-title`} onClose={() => setOpen(false)}>
         <div
           className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-[#111827]/45 px-4 py-4 backdrop-blur-sm sm:px-5 sm:py-6"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={`${action}-lead-title`}
         >
           <section className="max-h-[calc(100svh-2rem)] w-full max-w-2xl overflow-y-auto rounded-[20px] border border-[#ECE8E2] bg-white p-4 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)] sm:p-6">
             <DialogHeader
@@ -270,6 +268,7 @@ export function LeadActionDialog({
             </form>
           </section>
         </div>
+        </ModalLayer>
       ) : null}
 
     </>
@@ -280,7 +279,7 @@ export function LeadDeleteButton({ lead }: { lead: Lead }) {
   const [, formAction] = useActionState(removeLead, initialState);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    if (!window.confirm(`Hapus lead "${lead.name}"?`)) {
+    if (!window.confirm(`Hapus permintaan konsultasi dari "${lead.name}"?`)) {
       event.preventDefault();
     }
   };
@@ -320,7 +319,7 @@ function DialogHeader({
           id={`${action}-${entity}-title`}
           className="mt-2 text-xl font-semibold text-[#111827]"
         >
-          {action === "edit" ? "Edit data" : "Tambah data baru"}
+          {action === "edit" ? "Ubah data" : "Tambah data baru"}
         </h2>
       </div>
       <button

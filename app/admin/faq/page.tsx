@@ -6,7 +6,7 @@ import { getAdminItems } from "@/lib/stores/admin-store";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Kelola FAQ",
+  title: "Pertanyaan Umum",
   description: "Halaman admin untuk mengelola FAQ SatuJanji.",
 };
 
@@ -16,9 +16,9 @@ export default async function AdminFaqPage() {
   return (
     <AdminShell>
       <AdminPanel
-        title="Kelola FAQ"
+        title="Pertanyaan Umum"
         description="Kelola jawaban atas pertanyaan yang paling sering disampaikan pelanggan."
-        entity="FAQ"
+        entity="Pertanyaan"
         collection="faqs"
       >
         <div className="grid gap-3">
@@ -26,7 +26,7 @@ export default async function AdminFaqPage() {
             <AdminRow
               key={faq.id}
               id={faq.id}
-              entity="FAQ"
+              entity="Pertanyaan"
               collection="faqs"
               title={faq.title}
               meta={faq.meta}
