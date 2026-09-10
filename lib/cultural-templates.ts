@@ -18,6 +18,8 @@ export type CulturalTemplate = {
   ceremonyTime: string;
   story: Array<{ year: string; title: string; text: string }>;
   galleryLabels: string[];
+  coverImage?: string;
+  galleryImages?: string[];
   palette: {
     ink: string;
     muted: string;

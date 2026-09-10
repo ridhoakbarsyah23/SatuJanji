@@ -25,7 +25,13 @@ type TemplateStyle = CSSProperties & {
   "--invite-contrast": string;
 };
 
-export function CulturalInvitation({ template }: { template: CulturalTemplate }) {
+export function CulturalInvitation({
+  template,
+  previewMode = false,
+}: {
+  template: CulturalTemplate;
+  previewMode?: boolean;
+}) {
   const [opened, setOpened] = useState(false);
   const [rsvpSent, setRsvpSent] = useState(false);
   const style: TemplateStyle = {
@@ -37,6 +43,17 @@ export function CulturalInvitation({ template }: { template: CulturalTemplate })
     "--invite-accent-soft": template.palette.accentSoft,
     "--invite-contrast": template.palette.contrast,
   };
+  const photoBackground = template.coverImage
+    ? {
+        backgroundImage: `linear-gradient(rgba(15, 15, 15, 0.55), rgba(15, 15, 15, 0.72)), url(${JSON.stringify(template.coverImage)})`,
+      }
+    : undefined;
+  const galleryItems = Array.from({
+    length: Math.max(template.galleryLabels.length, template.galleryImages?.length ?? 0),
+  }).map((_, index) => ({
+    label: template.galleryLabels[index] ?? `Momen ${index + 1}`,
+    image: template.galleryImages?.[index],
+  }));
 
   function openInvitation() {
     setOpened(true);
@@ -55,8 +72,16 @@ export function CulturalInvitation({ template }: { template: CulturalTemplate })
       className={`invitation invitation-${template.motif}`}
       style={style}
     >
+      {previewMode ? (
+        <span className="fixed left-3 top-3 z-[110] rounded-full bg-gray-950 px-3 py-1.5 text-xs font-semibold text-white shadow-xl">
+          Mode Preview
+        </span>
+      ) : null}
       {!opened ? (
-        <div className="invitation-cover">
+        <div
+          className={`invitation-cover ${template.coverImage ? "invitation-has-photo" : ""}`}
+          style={photoBackground}
+        >
           <div className="invitation-cover-pattern" aria-hidden="true" />
           <div className="invitation-cover-frame">
             <p className="invitation-kicker">The Wedding of</p>
@@ -80,12 +105,15 @@ export function CulturalInvitation({ template }: { template: CulturalTemplate })
           <a href="#invitation-home">Beranda</a>
           <a href="#acara">Acara</a>
           <a href="#kisah">Kisah</a>
-          <a href="#rsvp">RSVP</a>
+          {previewMode ? <a href="#rsvp">RSVP</a> : null}
         </nav>
       </header>
 
       <main id="invitation-home">
-        <section className="invitation-hero">
+        <section
+          className={`invitation-hero ${template.coverImage ? "invitation-has-photo" : ""}`}
+          style={photoBackground}
+        >
           <div className="invitation-hero-pattern" aria-hidden="true" />
           <div className="invitation-hero-copy">
             <p className="invitation-kicker">{template.region} · Wedding Collection</p>
@@ -193,17 +221,21 @@ export function CulturalInvitation({ template }: { template: CulturalTemplate })
           <p className="invitation-section-kicker">Potongan cerita</p>
           <h2>Galeri Bahagia</h2>
           <div className="invitation-gallery">
-            {template.galleryLabels.map((label, index) => (
-              <article key={label} className={`invitation-gallery-card gallery-${index + 1}`}>
-                <div className="invitation-gallery-mark">{template.monogram}</div>
-                <p>{label}</p>
+            {galleryItems.map((item, index) => (
+              <article
+                key={`${item.label}-${index}`}
+                className={`invitation-gallery-card gallery-${index + 1} ${item.image ? "invitation-gallery-photo" : ""}`}
+                style={item.image ? { backgroundImage: `url(${JSON.stringify(item.image)})` } : undefined}
+              >
+                {!item.image ? <div className="invitation-gallery-mark">{template.monogram}</div> : null}
+                <p>{item.label}</p>
               </article>
             ))}
           </div>
           <p className="invitation-gallery-note">Setiap foto akan disusun untuk menghidupkan cerita perjalanan kalian.</p>
         </section>
 
-        <section id="rsvp" className="invitation-rsvp">
+        {previewMode ? <section id="rsvp" className="invitation-rsvp">
           <div className="invitation-rsvp-pattern" aria-hidden="true" />
           <div className="invitation-rsvp-copy">
             <p className="invitation-section-kicker">Konfirmasi kehadiran</p>
@@ -241,7 +273,7 @@ export function CulturalInvitation({ template }: { template: CulturalTemplate })
               </button>
             </form>
           )}
-        </section>
+        </section> : null}
       </main>
 
       <footer className="invitation-footer">

@@ -2,6 +2,7 @@
 
 import {
   Bell,
+  BookHeart,
   ChevronRight,
   HelpCircle,
   LayoutDashboard,
@@ -36,6 +37,12 @@ const menuGroups = [
   {
     label: "Konten",
     items: [
+      {
+        label: "Undangan",
+        description: "Draft dan undangan terbit",
+        href: "/admin/undangan",
+        icon: BookHeart,
+      },
       {
         label: "Template",
         description: "Kelola desain undangan",
@@ -222,7 +229,9 @@ function SidebarNav({
           <div className="grid gap-1.5">
             {group.items.map((item) => {
               const Icon = item.icon;
-              const active = pathname === item.href;
+              const active =
+                pathname === item.href ||
+                (item.href !== "/admin" && pathname.startsWith(`${item.href}/`));
 
               return (
                 <Link

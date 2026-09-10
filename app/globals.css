@@ -510,6 +510,17 @@ a {
   color: var(--invite-surface);
 }
 
+.invitation-cover.invitation-has-photo,
+.invitation-hero.invitation-has-photo {
+  background-position: center;
+  background-size: cover;
+}
+
+.invitation-has-photo .invitation-cover-pattern,
+.invitation-has-photo .invitation-hero-pattern {
+  opacity: 0.28;
+}
+
 .invitation-hero::before,
 .invitation-hero::after {
   position: absolute;
@@ -749,9 +760,11 @@ a {
 .invitation-story-list h3 { margin-top: 0.5rem; font-size: 1.6rem; font-weight: 400; }
 .invitation-story-list article > span { display: block; margin-top: 0.8rem; color: var(--invite-muted); font-size: 0.82rem; line-height: 1.8; }
 
-.invitation-gallery { display: grid; grid-template-columns: 1.2fr 0.8fr; grid-template-rows: repeat(2, 14rem); gap: 0.75rem; margin-top: 3rem; }
+.invitation-gallery { display: grid; grid-template-columns: 1.2fr 0.8fr; grid-template-rows: repeat(2, 14rem); grid-auto-rows: 14rem; gap: 0.75rem; margin-top: 3rem; }
 .invitation-gallery-card { position: relative; display: flex; align-items: flex-end; overflow: hidden; padding: 1.25rem; background: var(--invite-contrast); color: var(--invite-surface); text-align: left; }
 .invitation-gallery-card::before { position: absolute; inset: 0; background: radial-gradient(circle at 30% 25%, var(--invite-accent-soft), transparent 35%), linear-gradient(135deg, transparent, var(--invite-accent)); content: ""; opacity: 0.58; }
+.invitation-gallery-photo { background-position: center; background-size: cover; }
+.invitation-gallery-photo::before { background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--invite-contrast) 78%, transparent)); opacity: 1; }
 .invitation-gallery-card::after { position: absolute; inset: 1rem; border: 1px solid color-mix(in srgb, var(--invite-surface) 35%, transparent); content: ""; }
 .invitation-gallery-card.gallery-1 { grid-row: span 2; }
 .invitation-gallery-card p { position: relative; z-index: 1; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; }
@@ -810,7 +823,7 @@ a {
   .invitation-event-card { min-height: 20rem; }
   .invitation-story-list { grid-template-columns: 1fr; gap: 2.5rem; }
   .invitation-story-list article:not(:last-child)::after { top: 2.3rem; left: 50%; width: 1px; height: calc(100% + 1rem); }
-  .invitation-gallery { grid-template-columns: 1fr; grid-template-rows: repeat(3, 17rem); }
+  .invitation-gallery { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-rows: 17rem; }
   .invitation-gallery-card.gallery-1 { grid-row: auto; }
   .invitation-rsvp { grid-template-columns: 1fr; }
 }

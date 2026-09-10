@@ -12,4 +12,6 @@ coverage
 Thumbs.db
 data/leads.json
 data/admin-content.json
+data/invitations.json
+public/uploads/prewedding/
 tsconfig.tsbuildinfo

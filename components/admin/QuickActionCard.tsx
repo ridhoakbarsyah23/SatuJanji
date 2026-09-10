@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  BookHeart,
   LayoutTemplate,
   PackageCheck,
   PlusCircle,
@@ -13,10 +14,11 @@ export type QuickAction = {
   title: string;
   description: string;
   href: string;
-  icon: "template" | "package" | "faq" | "leads";
+  icon: "invitation" | "template" | "package" | "faq" | "leads";
 };
 
 const actionIcons = {
+  invitation: BookHeart,
   template: LayoutTemplate,
   package: PackageCheck,
   faq: PlusCircle,

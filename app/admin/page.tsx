@@ -17,6 +17,12 @@ export const metadata: Metadata = {
 
 const quickLinks = [
   {
+    title: "Buat Undangan",
+    description: "Isi detail pasangan, pilih desain, dan simpan sebagai draft.",
+    href: "/admin/undangan/baru",
+    icon: "invitation",
+  },
+  {
     title: "Kelola Template",
     description: "Perbarui koleksi desain undangan yang ditampilkan kepada pelanggan.",
     href: "/admin/template",
@@ -27,12 +33,6 @@ const quickLinks = [
     description: "Atur pilihan layanan dan manfaat yang ditawarkan.",
     href: "/admin/paket",
     icon: "package",
-  },
-  {
-    title: "Kelola FAQ",
-    description: "Perbarui jawaban atas pertanyaan penting dari pelanggan.",
-    href: "/admin/faq",
-    icon: "faq",
   },
   {
     title: "Lihat Permintaan",

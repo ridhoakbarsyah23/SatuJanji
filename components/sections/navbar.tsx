@@ -19,7 +19,11 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  if (pathname.startsWith("/admin") || pathname.startsWith("/template/")) {
+  if (
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/template/") ||
+    pathname.startsWith("/undangan/")
+  ) {
     return null;
   }
 

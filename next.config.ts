@@ -31,7 +31,7 @@ const contentSecurityPolicyHeader = {
     "default-src 'self'",
     "script-src 'self' 'unsafe-inline'",
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: https:",
     "font-src 'self' data:",
     "connect-src 'self' https://wa.me https://api.whatsapp.com",
     "frame-ancestors 'none'",
@@ -55,6 +55,11 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: isProduction,
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "25mb",
+    },
   },
   webpack(config) {
     // OneDrive can lock Webpack pack files during atomic renames. Disabling the
