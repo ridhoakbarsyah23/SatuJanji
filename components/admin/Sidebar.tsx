@@ -23,18 +23,18 @@ import { LogoutConfirmDialog } from "@/components/admin/LogoutConfirmDialog";
 
 const menuGroups = [
   {
-    label: "Dashboard",
+    label: "Ringkasan",
     items: [
       {
         label: "Dashboard",
-        description: "Ringkasan performa",
+        description: "Ringkasan aktivitas",
         href: "/admin",
         icon: LayoutDashboard,
       },
     ],
   },
   {
-    label: "Content",
+    label: "Konten",
     items: [
       {
         label: "Template",
@@ -57,34 +57,34 @@ const menuGroups = [
     ],
   },
   {
-    label: "Customer",
+    label: "Pelanggan",
     items: [
       {
-        label: "Leads",
-        description: "Calon pelanggan",
+        label: "Permintaan Masuk",
+        description: "Calon pasangan",
         href: "/admin/leads",
         icon: UsersRound,
       },
     ],
   },
   {
-    label: "Settings",
+    label: "Pengaturan",
     items: [
       {
-        label: "Profile",
+        label: "Profil",
         description: "Identitas admin",
         href: "/admin/profile",
         icon: UserRound,
       },
       {
-        label: "Settings",
-        description: "Preferensi dashboard",
+        label: "Pengaturan",
+        description: "Preferensi pengelolaan",
         href: "/admin/settings",
         icon: Settings,
       },
       {
-        label: "Notifications",
-        description: "Pusat notifikasi",
+        label: "Notifikasi",
+        description: "Informasi terbaru",
         href: "/admin/notifications",
         icon: Bell,
       },
@@ -140,10 +140,10 @@ export function MobileSidebarTrigger() {
               <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5">
                 <div className="mb-5 rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#C79A4A]">
-                    Admin Menu
+                    Menu Pengelola
                   </p>
                   <p className="mt-2 text-sm leading-6 text-[#6B7280]">
-                    Pilih halaman untuk mengelola SatuJanji.
+                    Kelola seluruh kebutuhan operasional SatuJanji.
                   </p>
                 </div>
                 <SidebarNav mode="mobile" onNavigate={() => setOpen(false)} />
@@ -153,7 +153,7 @@ export function MobileSidebarTrigger() {
                   SatuJanji
                 </p>
                 <p className="mt-1 text-sm text-[#6B7280]">
-                  Premium wedding invitation dashboard
+                  Pengelolaan undangan digital
                 </p>
               </div>
             </motion.aside>
@@ -172,12 +172,12 @@ export function Sidebar() {
       </div>
       <div className="mb-6 rounded-[20px] border border-[#ECE8E2] bg-[#FAFAF8] p-4">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#C79A4A]">
-          Workspace
+          Ruang Kerja
         </p>
         <p className="mt-2 truncate text-sm font-semibold text-[#111827]">
           SatuJanji Admin
         </p>
-        <p className="mt-1 text-xs text-[#6B7280]">Premium dashboard</p>
+        <p className="mt-1 text-xs text-[#6B7280]">Pusat pengelolaan layanan</p>
       </div>
       <SidebarNav mode="desktop" />
     </aside>
@@ -288,7 +288,7 @@ function SidebarNav({
         >
           <LogOut className="size-5" aria-hidden="true" />
         </span>
-        <span>Logout</span>
+        <span>Keluar</span>
       </LogoutConfirmDialog>
     </nav>
   );

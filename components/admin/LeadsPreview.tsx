@@ -9,7 +9,7 @@ export function LeadsPreview({ leads }: { leads: Lead[] }) {
     <section className="rounded-[20px] border border-[#ECE8E2] bg-white p-6 shadow-[0_14px_40px_rgba(17,24,39,0.045)]">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-[#111827]">Leads Preview</h2>
+          <h2 className="text-lg font-semibold text-[#111827]">Permintaan Terbaru</h2>
           <p className="mt-1 text-sm text-[#6B7280]">Lima calon pelanggan terbaru.</p>
         </div>
       </div>

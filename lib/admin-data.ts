@@ -34,7 +34,7 @@ export const adminFaqs = faqs.map((faq, index) => ({
 
 export const adminLeads = [
   {
-    name: "Calon Customer",
+    name: "Calon Pasangan",
     phone: "Belum ada data",
     packageName: "Menunggu pendaftar",
     eventDate: "-",

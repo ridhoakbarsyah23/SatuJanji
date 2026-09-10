@@ -106,7 +106,7 @@ export async function saveLead(
 
   revalidatePath("/admin/leads");
   revalidatePath("/admin");
-  return { ok: true, message: "Lead tersimpan." };
+  return { ok: true, message: "Permintaan tersimpan." };
 }
 
 export async function removeLead(
@@ -116,7 +116,7 @@ export async function removeLead(
   const id = readString(formData, "id");
 
   if (!id) {
-    return { ok: false, message: "Lead yang akan dihapus tidak ditemukan." };
+    return { ok: false, message: "Permintaan yang akan dihapus tidak ditemukan." };
   }
 
   if (id) {

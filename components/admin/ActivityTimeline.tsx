@@ -10,7 +10,7 @@ const groups = [
   },
   {
     label: "Kemarin",
-    items: ["FAQ baru ditambahkan", "Leads baru masuk"],
+    items: ["FAQ baru ditambahkan", "Permintaan konsultasi diterima"],
   },
 ];
 
@@ -21,7 +21,7 @@ export function ActivityTimeline() {
         <div>
           <h2 className="text-lg font-semibold text-[#111827]">Recent Activity</h2>
           <p className="mt-1 text-sm text-[#6B7280]">
-            Ringkasan perubahan terbaru di dashboard.
+            Ringkasan aktivitas pengelolaan terbaru.
           </p>
         </div>
       </div>

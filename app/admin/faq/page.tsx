@@ -17,7 +17,7 @@ export default async function AdminFaqPage() {
     <AdminShell>
       <AdminPanel
         title="Kelola FAQ"
-        description="Pertanyaan yang sering ditanyakan calon customer."
+        description="Kelola jawaban atas pertanyaan yang paling sering disampaikan pelanggan."
         entity="FAQ"
         collection="faqs"
       >

@@ -11,32 +11,32 @@ import { getLeads } from "@/lib/leads-store";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard",
-  description: "Dashboard admin SatuJanji untuk mengelola konten dan calon customer.",
+  title: "Dashboard Admin",
+  description: "Pusat pengelolaan konten dan permintaan pelanggan SatuJanji.",
 };
 
 const quickLinks = [
   {
-    title: "Tambah Template",
-    description: "Kelola koleksi desain undangan yang tampil di landing.",
+    title: "Kelola Template",
+    description: "Perbarui koleksi desain undangan yang ditampilkan kepada pelanggan.",
     href: "/admin/template",
     icon: "template",
   },
   {
-    title: "Tambah Paket",
-    description: "Atur pilihan paket dan value yang ditawarkan.",
+    title: "Kelola Paket",
+    description: "Atur pilihan layanan dan manfaat yang ditawarkan.",
     href: "/admin/paket",
     icon: "package",
   },
   {
-    title: "Tambah FAQ",
-    description: "Perbarui pertanyaan penting untuk calon pelanggan.",
+    title: "Kelola FAQ",
+    description: "Perbarui jawaban atas pertanyaan penting dari pelanggan.",
     href: "/admin/faq",
     icon: "faq",
   },
   {
-    title: "Lihat Leads",
-    description: "Pantau calon customer terbaru dari halaman daftar.",
+    title: "Lihat Permintaan",
+    description: "Pantau calon pasangan yang mengajukan konsultasi terbaru.",
     href: "/admin/leads",
     icon: "leads",
   },
@@ -49,25 +49,25 @@ export default async function AdminDashboardPage() {
     {
       label: "Template",
       value: adminStats.templates,
-      trend: "+2 minggu ini",
+      trend: "Total tersedia",
       icon: "template",
     },
     {
       label: "Paket",
       value: adminStats.plans,
-      trend: "+1 minggu ini",
+      trend: "Total tersedia",
       icon: "package",
     },
     {
       label: "FAQ",
       value: adminStats.faqs,
-      trend: "+3 minggu ini",
+      trend: "Total tersedia",
       icon: "faq",
     },
     {
-      label: "Leads",
+      label: "Permintaan",
       value: leads.length,
-      trend: "+5 minggu ini",
+      trend: "Total masuk",
       icon: "leads",
     },
   ];

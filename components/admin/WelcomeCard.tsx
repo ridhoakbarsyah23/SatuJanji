@@ -8,7 +8,7 @@ export function WelcomeCard() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-[20px] border border-[#ECE8E2] bg-white p-5 shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:p-6 xl:p-8"
+      className="admin-welcome relative overflow-hidden rounded-[24px] border border-[#ECE8E2] bg-white p-5 shadow-[0_18px_50px_rgba(17,24,39,0.06)] sm:p-6 xl:p-8"
     >
       <div className="relative z-10 grid gap-6 xl:grid-cols-[1fr_18rem] 2xl:grid-cols-[1fr_22rem] xl:items-center">
         <div>
@@ -17,10 +17,10 @@ export function WelcomeCard() {
             className="mt-3 max-w-2xl text-3xl font-semibold leading-tight tracking-normal text-[#111827] sm:text-4xl xl:text-[2.75rem]"
             style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
           >
-            Selamat datang kembali di Dashboard SatuJanji.
+            Selamat datang kembali di ruang pengelolaan SatuJanji.
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-[#6B7280] sm:text-base">
-            Kelola template, paket, FAQ, dan calon pelanggan dengan lebih mudah.
+            Jaga informasi layanan tetap akurat dan tindak lanjuti setiap permintaan pelanggan dengan mudah.
           </p>
         </div>
 

@@ -1,9 +1,9 @@
 "use client";
 
 import {
+  ArrowUpRight,
   Bell,
   ChevronDown,
-  Search,
   Settings,
   UserRound,
 } from "lucide-react";
@@ -18,10 +18,10 @@ const pageTitles: Record<string, string> = {
   "/admin/template": "Template",
   "/admin/paket": "Paket",
   "/admin/faq": "FAQ",
-  "/admin/leads": "Leads",
-  "/admin/profile": "Profile",
-  "/admin/settings": "Settings",
-  "/admin/notifications": "Notifications",
+  "/admin/leads": "Permintaan Masuk",
+  "/admin/profile": "Profil",
+  "/admin/settings": "Pengaturan",
+  "/admin/notifications": "Notifikasi",
 };
 
 export function TopNavbar() {
@@ -46,18 +46,16 @@ export function TopNavbar() {
           </h1>
         </div>
 
-        <label className="relative order-last w-full lg:order-none lg:mx-auto lg:block lg:max-w-md xl:max-w-xl">
-          <span className="sr-only">Cari konten admin</span>
-          <Search
-            className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#9CA3AF]"
-            aria-hidden="true"
-          />
-          <input
-            type="search"
-            placeholder="Cari template, paket, FAQ..."
-            className="focus-ring h-10 w-full rounded-2xl border border-[#ECE8E2] bg-white pl-11 pr-4 text-sm text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#C79A4A] focus:bg-white sm:h-11"
-          />
-        </label>
+        <div className="hidden flex-1 justify-end lg:flex">
+          <Link
+            href="/"
+            target="_blank"
+            className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-2xl border border-[#ECE8E2] bg-white px-4 text-sm font-semibold text-[#6B7280] shadow-sm transition hover:-translate-y-0.5 hover:border-[#C79A4A]/30 hover:text-[#111827]"
+          >
+            Lihat Website
+            <ArrowUpRight className="size-4 text-[#C79A4A]" aria-hidden="true" />
+          </Link>
+        </div>
 
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <Link
@@ -102,7 +100,7 @@ export function TopNavbar() {
                 >
                   <div className="border-b border-[#ECE8E2] px-3 py-3">
                     <p className="text-sm font-semibold text-[#111827]">Admin SatuJanji</p>
-                    <p className="mt-1 text-xs text-[#6B7280]">Premium dashboard</p>
+                    <p className="mt-1 text-xs text-[#6B7280]">Pusat pengelolaan layanan</p>
                   </div>
                   <Link
                     href="/admin/profile"
@@ -110,7 +108,7 @@ export function TopNavbar() {
                     onClick={() => setOpen(false)}
                   >
                     <UserRound className="size-4" aria-hidden="true" />
-                    Profile
+                    Profil
                   </Link>
                   <Link
                     href="/admin/settings"
@@ -118,7 +116,7 @@ export function TopNavbar() {
                     onClick={() => setOpen(false)}
                   >
                     <Settings className="size-4" aria-hidden="true" />
-                    Settings
+                    Pengaturan
                   </Link>
                   <Link
                     href="/admin/notifications"
@@ -126,7 +124,7 @@ export function TopNavbar() {
                     onClick={() => setOpen(false)}
                   >
                     <Bell className="size-4" aria-hidden="true" />
-                    Notifications
+                    Notifikasi
                   </Link>
                 </motion.div>
               ) : null}

@@ -191,8 +191,8 @@ export function LeadActionDialog({
     setOpen(false);
     addToast({
       type: "success",
-      message: state.message || "Lead tersimpan.",
-      description: "Data lead sudah diperbarui.",
+      message: state.message || "Permintaan tersimpan.",
+      description: "Informasi pelanggan sudah diperbarui.",
     });
   }, [state.ok, state.message, addToast]);
 
@@ -228,7 +228,7 @@ export function LeadActionDialog({
           <section className="max-h-[calc(100svh-2rem)] w-full max-w-2xl overflow-y-auto rounded-[20px] border border-[#ECE8E2] bg-white p-4 text-[#111827] shadow-[0_24px_70px_rgba(17,24,39,0.18)] sm:p-6">
             <DialogHeader
               action={action}
-              entity="Lead"
+              entity="Permintaan"
               onClose={() => setOpen(false)}
             />
 

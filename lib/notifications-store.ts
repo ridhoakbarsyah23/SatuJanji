@@ -15,9 +15,9 @@ const notificationsPath = path.join(process.cwd(), "data", "admin-notifications.
 const initialNotifications: Notification[] = [
   {
     id: "notification-1",
-    title: "Lead baru masuk",
+    title: "Permintaan konsultasi baru",
     message: "Ada calon pelanggan baru yang mendaftar paket Premium.",
-    category: "Leads",
+    category: "Pelanggan",
     status: "Aktif",
     createdAt: new Date().toISOString(),
   },

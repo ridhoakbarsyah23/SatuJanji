@@ -7,8 +7,8 @@ import { getLeads } from "@/lib/leads-store";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Leads Pendaftar",
-  description: "Halaman admin untuk melihat leads SatuJanji.",
+  title: "Permintaan Konsultasi",
+  description: "Pantau dan tindak lanjuti permintaan konsultasi pelanggan SatuJanji.",
 };
 
 export default async function AdminLeadsPage() {
@@ -17,9 +17,9 @@ export default async function AdminLeadsPage() {
   return (
     <AdminShell>
       <AdminPanel
-        title="Leads Pendaftar"
-        description="Data dari halaman daftar nantinya akan masuk ke daftar ini."
-        entity="Lead"
+        title="Permintaan Konsultasi"
+        description="Setiap permintaan dari halaman konsultasi akan tersimpan di sini untuk ditindaklanjuti."
+        entity="Permintaan"
         actionSlot={<LeadActionDialog action="add" />}
       >
         <LeadsTable leads={leads} />

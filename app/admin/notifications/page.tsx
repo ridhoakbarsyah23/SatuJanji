@@ -6,31 +6,31 @@ import { SettingsSurface } from "@/components/admin/SettingsSurface";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Notifications Admin",
-  description: "Halaman notifikasi dashboard admin SatuJanji.",
+  title: "Notifikasi Admin",
+  description: "Pantau informasi penting dan aktivitas terbaru SatuJanji.",
 };
 
 export default function AdminNotificationsPage() {
   return (
     <AdminShell>
       <SettingsSurface
-        eyebrow="Notifications"
+        eyebrow="Notifikasi"
         title="Pusat Notifikasi"
-        description="Pantau pembaruan penting terkait konten, leads, dan aktivitas admin."
+        description="Pantau informasi penting terkait permintaan pelanggan, konten, dan aktivitas pengelolaan."
         cards={[
           {
-            title: "Notifikasi Leads",
-            description: "Gunakan halaman Leads untuk memantau calon pelanggan terbaru.",
+            title: "Permintaan Pelanggan",
+            description: "Pantau calon pasangan terbaru melalui halaman Permintaan Masuk.",
             icon: Bell,
           },
           {
             title: "Status Konten",
-            description: "Perubahan template, paket, dan FAQ akan tercermin di dashboard.",
+            description: "Pastikan informasi template, paket, dan FAQ selalu sesuai dengan layanan terbaru.",
             icon: CheckCircle2,
           },
           {
             title: "Pesan Operasional",
-            description: "Ruang ini siap dikembangkan untuk pesan internal admin.",
+            description: "Gunakan pusat notifikasi untuk mengikuti informasi operasional yang memerlukan perhatian.",
             icon: MessageSquareText,
           },
         ]}
