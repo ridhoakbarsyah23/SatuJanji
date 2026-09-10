@@ -90,9 +90,6 @@ export function Footer() {
         <div className="mt-7 flex flex-col gap-3 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} SatuJanji. Seluruh hak dilindungi.</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/masuk" className="focus-ring rounded-md transition hover:text-gold">
-              Akses Pengelola
-            </Link>
             <a
               href="https://eldorado-tech.com"
               target="_blank"

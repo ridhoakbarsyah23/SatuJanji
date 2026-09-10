@@ -59,9 +59,6 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <Button href="/masuk" variant="ghost">
-              Akses Admin
-            </Button>
             <Button href="/daftar">
               Konsultasi
               <ArrowRight className="size-4" strokeWidth={1.75} aria-hidden="true" />
@@ -95,10 +92,7 @@ export function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-4 grid grid-cols-2 gap-3 border-t border-gray-100 pt-4">
-                <Button href="/masuk" variant="secondary" onClick={() => setOpen(false)}>
-                  Akses Admin
-                </Button>
+              <div className="mt-4 grid gap-3 border-t border-gray-100 pt-4">
                 <Button href="/daftar" onClick={() => setOpen(false)}>
                   Konsultasi
                 </Button>
