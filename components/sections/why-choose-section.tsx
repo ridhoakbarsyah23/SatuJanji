@@ -1,10 +1,11 @@
 import { Reveal } from "@/components/ui/reveal";
+import { IconBadge } from "@/components/ui/icon-badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { reasons } from "@/lib/site-content";
 
 export function WhyChooseSection() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="section-shell">
         <SectionHeading
           eyebrow="Kenapa SatuJanji"
@@ -12,15 +13,13 @@ export function WhyChooseSection() {
           description="Tidak perlu banyak menu. Cukup pilih desain, isi data, lalu bagikan link."
         />
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
               <Reveal key={reason.title} delay={index * 0.06}>
-                <article className="h-full rounded-lg border border-gray-100 bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/25">
-                  <div className="grid size-12 place-items-center rounded-lg bg-cream text-gold">
-                    <Icon className="size-6" aria-hidden="true" />
-                  </div>
+                <article className="group h-full rounded-[24px] border border-gray-100 bg-gradient-to-b from-white to-cream/35 p-6 shadow-[0_14px_45px_rgba(23,23,23,0.05)] transition duration-300 hover:-translate-y-1 hover:border-gold/25 hover:shadow-[0_24px_65px_rgba(23,23,23,0.09)]">
+                  <IconBadge icon={Icon} className="transition group-hover:-translate-y-0.5" />
                   <h3 className="mt-6 text-lg font-semibold text-gray-950">
                     {reason.title}
                   </h3>

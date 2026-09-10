@@ -10,9 +10,9 @@ type PasswordFieldProps = {
 };
 
 export function PasswordField({
-  label = "Password",
+  label = "Kata sandi",
   name = "password",
-  placeholder = "Masukkan password",
+  placeholder = "Masukkan kata sandi",
 }: PasswordFieldProps) {
   const [visible, setVisible] = useState(false);
   const Icon = visible ? EyeOff : Eye;

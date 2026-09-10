@@ -5,8 +5,8 @@ import { AuthShell } from "@/components/auth/auth-shell";
 import { FormAlert } from "@/components/auth/form-alert";
 
 export const metadata: Metadata = {
-  title: "Daftar",
-  description: "Daftar akun SatuJanji untuk mulai membuat undangan pernikahan digital.",
+  title: "Konsultasi Undangan",
+  description: "Ceritakan rencana hari bahagiamu dan temukan layanan undangan digital yang paling sesuai bersama SatuJanji.",
 };
 
 type DaftarPageProps = {
@@ -21,14 +21,14 @@ export default async function DaftarPage({ searchParams }: DaftarPageProps) {
 
   return (
     <AuthShell
-      eyebrow="Daftar"
-      title="Mulai buat undanganmu"
-      description="Isi data awal supaya admin bisa membantu menyiapkan akun dan rekomendasi paket yang sesuai."
+      eyebrow="Konsultasi Gratis"
+      title="Ceritakan rencana hari bahagiamu"
+      description="Lengkapi informasi singkat berikut agar tim SatuJanji dapat merekomendasikan desain dan layanan yang paling sesuai."
       footer={
         <>
-          Sudah punya akun?{" "}
+          Akses khusus pengelola?{" "}
           <Link href="/masuk" className="font-semibold text-gold hover:text-[#a87f36]">
-            Masuk
+            Masuk ke dashboard
           </Link>
         </>
       }
@@ -36,22 +36,22 @@ export default async function DaftarPage({ searchParams }: DaftarPageProps) {
       {success === "1" ? (
         <FormAlert
           type="success"
-          title="Pendaftaran terkirim"
-          message="Data kamu sudah masuk ke admin SatuJanji. Tim akan menghubungi lewat WhatsApp."
+          title="Permintaan konsultasi diterima"
+          message="Terima kasih. Tim SatuJanji akan menghubungimu melalui WhatsApp untuk membahas kebutuhan undangan."
         />
       ) : null}
 
       {error === "required" ? (
         <FormAlert
           type="error"
-          title="Data belum lengkap"
-          message="Isi nama, email, WhatsApp, dan paket yang diminati terlebih dahulu."
+          title="Informasi belum lengkap"
+          message="Lengkapi nama, email, WhatsApp, dan pilihan paket agar kami dapat membantu dengan tepat."
         />
       ) : null}
 
       <form action="/api/leads" method="post" className="mt-8 grid gap-5">
         <label className="grid gap-2 text-sm font-semibold text-gray-700">
-          Nama lengkap
+          Nama lengkap kamu
           <span className="relative">
             <UserRound className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-gray-400" />
             <input
@@ -110,7 +110,7 @@ export default async function DaftarPage({ searchParams }: DaftarPageProps) {
         </div>
 
         <label className="grid gap-2 text-sm font-semibold text-gray-700">
-          Paket yang diminati
+          Layanan yang diminati
           <select
             name="package"
             className="focus-ring min-h-12 w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-normal text-gray-900 outline-none"
@@ -131,7 +131,7 @@ export default async function DaftarPage({ searchParams }: DaftarPageProps) {
           type="submit"
           className="focus-ring inline-flex min-h-12 items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-[#a87f36]"
         >
-          Daftar
+          Kirim Permintaan Konsultasi
         </button>
       </form>
     </AuthShell>

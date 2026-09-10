@@ -1,5 +1,6 @@
 import { Check, Crown, Gem, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { IconBadge } from "@/components/ui/icon-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { createPackageInquiryLink, createWhatsAppLink } from "@/lib/whatsapp";
@@ -42,52 +43,47 @@ const plans = [
 
 export function PricingSection() {
   return (
-    <section id="harga" className="py-20 sm:py-28">
+    <section id="harga" className="relative overflow-hidden py-20 sm:py-28">
+      <div className="section-orb section-orb-left" aria-hidden="true" />
       <div className="section-shell">
         <SectionHeading
-          eyebrow="Harga"
-          title="Tanya admin untuk paket yang paling pas"
-          description="Konsultasikan kebutuhan undanganmu lewat WhatsApp. Admin SatuJanji akan bantu memilih paket, fitur, dan template yang sesuai."
+          eyebrow="Pilihan Paket"
+          title="Pilih layanan sesuai kebutuhan hari bahagiamu"
+          description="Ceritakan kebutuhan acaramu. Tim SatuJanji akan membantu memilih paket, fitur, dan template yang paling sesuai."
         />
 
         <Reveal className="mx-auto mt-8 flex max-w-2xl justify-center">
           <Button
             href={createWhatsAppLink(
-              "Halo admin SatuJanji, saya ingin konsultasi paket undangan pernikahan digital.",
+              "Halo tim SatuJanji, saya ingin berkonsultasi mengenai paket undangan pernikahan digital.",
             )}
             target="_blank"
             rel="noreferrer"
             className="w-full min-[380px]:w-auto min-[380px]:min-w-52"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
-            Tanya Admin
+            Konsultasi Gratis
           </Button>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <div className="relative mt-12 grid items-stretch gap-5 lg:grid-cols-3">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
             return (
               <Reveal key={plan.name} delay={index * 0.08}>
                 <article
-                  className={`relative flex h-full flex-col rounded-lg border p-7 shadow-soft ${
+                  className={`relative flex h-full flex-col overflow-hidden rounded-[28px] border p-6 shadow-[0_18px_55px_rgba(23,23,23,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_75px_rgba(23,23,23,0.12)] sm:p-7 ${
                     plan.highlighted
-                      ? "border-gold bg-gray-950 text-white"
+                      ? "border-gold bg-gray-950 text-white lg:-translate-y-3 lg:hover:-translate-y-4"
                       : "border-gray-100 bg-white text-gray-950"
                   }`}
                 >
                   {plan.highlighted ? (
-                    <span className="absolute right-5 top-5 rounded-full bg-gold px-3 py-1 text-xs font-semibold text-white">
+                    <span className="absolute right-5 top-5 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-glow">
                       Terpopuler
                     </span>
                   ) : null}
-                  <div
-                    className={`grid size-12 place-items-center rounded-lg ${
-                      plan.highlighted ? "bg-white/10 text-gold" : "bg-cream text-gold"
-                    }`}
-                  >
-                    <Icon className="size-6" aria-hidden="true" />
-                  </div>
+                  <IconBadge icon={Icon} variant={plan.highlighted ? "dark" : "light"} />
                   <h3 className="mt-7 text-xl font-semibold">{plan.name}</h3>
                   <p
                     className={`mt-3 text-sm leading-7 ${
@@ -103,7 +99,7 @@ export function PricingSection() {
                         : "bg-cream text-gray-900"
                     }`}
                   >
-                    Harga menyesuaikan kebutuhan acara
+                    Penawaran disesuaikan dengan kebutuhan acara
                   </p>
                   <ul className="mt-7 grid gap-3">
                     {plan.features.map((feature) => (
@@ -115,7 +111,7 @@ export function PricingSection() {
                               : "bg-gold/10 text-gold"
                           }`}
                         >
-                          <Check className="size-3.5" aria-hidden="true" />
+                          <Check className="size-3.5" strokeWidth={2} aria-hidden="true" />
                         </span>
                         <span className={plan.highlighted ? "text-white/80" : "text-gray-700"}>
                           {feature}
@@ -131,7 +127,7 @@ export function PricingSection() {
                     className="mt-8 w-full"
                   >
                     <MessageCircle className="size-4" aria-hidden="true" />
-                    Tanya Paket Ini
+                    Pilih Paket Ini
                   </Button>
                 </article>
               </Reveal>

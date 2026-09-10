@@ -1,80 +1,54 @@
 import type { Metadata } from "next";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { AuthShell } from "@/components/auth/auth-shell";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Lupa Akses",
+  title: "Pemulihan Akses",
   description:
     "Pulihkan akses akun SatuJanji untuk kembali mengelola undangan pernikahan digital.",
 };
 
 export default function LupaAksesPage() {
   const recoveryLink = createWhatsAppLink(
-    "Halo admin SatuJanji, saya lupa akses akun dan ingin dibantu memulihkan akun.",
+    "Halo tim SatuJanji, saya memerlukan bantuan untuk memulihkan akses pengelola.",
   );
 
   return (
     <AuthShell
-      eyebrow="Lupa Akses"
-      title="Pulihkan akses akun"
-      description="Masukkan email atau nomor WhatsApp yang pernah digunakan. Admin dapat membantu mencocokkan data akun undanganmu."
+      eyebrow="Pemulihan Akses"
+      title="Kami bantu pulihkan aksesmu"
+      description="Hubungi tim SatuJanji melalui WhatsApp untuk memulai verifikasi identitas dan memulihkan akses pengelola."
       footer={
         <>
-          Sudah ingat akses akun?{" "}
+          Sudah ingat kredensial?{" "}
           <Link href="/masuk" className="font-semibold text-gold hover:text-[#a87f36]">
             Masuk kembali
           </Link>
         </>
       }
     >
-      <form className="mt-8 grid gap-5">
-        <label className="grid gap-2 text-sm font-semibold text-gray-700">
-          Email akun
-          <span className="relative">
-            <Mail className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-gray-400" />
-            <input
-              type="email"
-              name="email"
-              autoComplete="email"
-              placeholder="nama@email.com"
-              className="focus-ring min-h-12 w-full rounded-lg border border-gray-200 bg-white py-3 pl-11 pr-4 text-sm font-normal text-gray-900 outline-none placeholder:text-gray-400"
-            />
+      <div className="mt-8 grid gap-5">
+        <div className="rounded-2xl border border-gold/15 bg-cream/70 p-5">
+          <span className="grid size-11 place-items-center rounded-2xl bg-white text-gold shadow-sm">
+            <ShieldCheck className="size-5" aria-hidden="true" />
           </span>
-        </label>
-
-        <label className="grid gap-2 text-sm font-semibold text-gray-700">
-          Nomor WhatsApp
-          <span className="relative">
-            <Phone className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-gray-400" />
-            <input
-              type="tel"
-              name="phone"
-              autoComplete="tel"
-              placeholder="08xxxxxxxxxx"
-              className="focus-ring min-h-12 w-full rounded-lg border border-gray-200 bg-white py-3 pl-11 pr-4 text-sm font-normal text-gray-900 outline-none placeholder:text-gray-400"
-            />
-          </span>
-        </label>
-
-        <button
-          type="button"
-          className="focus-ring inline-flex min-h-12 items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-[#a87f36]"
-        >
-          Kirim Permintaan Pemulihan
-        </button>
-
+          <h3 className="mt-4 font-semibold text-gray-950">Verifikasi secara aman</h3>
+          <p className="mt-2 text-sm leading-7 text-gray-600">
+            Siapkan email pengelola dan nomor WhatsApp yang terdaftar. Tim kami akan mencocokkan informasi sebelum membantu memulihkan akses.
+          </p>
+        </div>
         <a
           href={recoveryLink}
           target="_blank"
           rel="noreferrer"
-          className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-900 shadow-soft transition hover:-translate-y-0.5 hover:border-gold/40"
+          className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-[#a87f36]"
         >
           <MessageCircle className="size-4" aria-hidden="true" />
-          Hubungi Admin Sekarang
+          Mulai Pemulihan via WhatsApp
         </a>
-      </form>
+      </div>
     </AuthShell>
   );
 }

@@ -23,45 +23,45 @@ export type IconContent = {
   icon: LucideIcon;
 };
 
-export const heroHighlights = ["Pilih template", "Isi data acara", "Bagikan link"];
+export const heroHighlights = ["Pilih desain", "Lengkapi cerita", "Bagikan momen"];
 
 export const trustItems: IconContent[] = [
   {
-    title: "Mudah dipahami",
-    description: "Alur dibuat sederhana agar pasangan cepat mulai.",
+    title: "Proses sederhana",
+    description: "Mulai dengan mudah, tanpa alur yang membingungkan.",
     icon: CheckCircle2,
   },
   {
-    title: "Siap di HP",
-    description: "Nyaman dibuka dari layar kecil sampai desktop.",
+    title: "Nyaman di semua layar",
+    description: "Tetap indah dibuka melalui ponsel, tablet, atau desktop.",
     icon: Smartphone,
   },
   {
-    title: "Data terarah",
-    description: "Informasi acara dan tamu berada dalam satu tempat.",
+    title: "Informasi tertata",
+    description: "Detail acara tersusun jelas agar mudah ditemukan tamu.",
     icon: ClipboardList,
   },
   {
-    title: "Dibantu admin",
-    description: "Ada bantuan saat memilih paket dan template.",
+    title: "Pendampingan personal",
+    description: "Tim kami siap membantu memilih desain dan layanan.",
     icon: ShieldCheck,
   },
 ];
 
 export const systemPreviewItems: IconContent[] = [
   {
-    title: "Informasi acara",
-    description: "Nama pasangan, tanggal, waktu, lokasi, dan susunan acara ditampilkan rapi.",
+    title: "Detail acara yang jelas",
+    description: "Nama pasangan, tanggal, waktu, lokasi, dan rangkaian acara tersaji dengan rapi.",
     icon: ClipboardList,
   },
   {
-    title: "Konfirmasi tamu",
-    description: "Tamu dapat mengisi RSVP dan pasangan lebih mudah melihat respons.",
+    title: "Kehadiran lebih terpantau",
+    description: "Konfirmasi tamu membantu pasangan mempersiapkan acara dengan lebih tenang.",
     icon: UsersRound,
   },
   {
-    title: "Halaman undangan",
-    description: "Link undangan bisa dibagikan ke WhatsApp, Instagram, atau keluarga.",
+    title: "Mudah dibagikan",
+    description: "Satu tautan dapat dibagikan kepada keluarga dan sahabat melalui kanal pilihanmu.",
     icon: Link2,
   },
 ];
@@ -69,22 +69,22 @@ export const systemPreviewItems: IconContent[] = [
 export const reasons: IconContent[] = [
   {
     title: "Mudah Digunakan",
-    description: "Isi data, foto, lokasi, dan cerita tanpa perlu coding.",
+    description: "Siapkan detail acara, foto, lokasi, dan cerita tanpa perlu memahami teknis website.",
     icon: WandSparkles,
   },
   {
-    title: "Template Rapi",
-    description: "Desain dibuat bersih agar informasi acara mudah dibaca.",
+    title: "Desain Berkarakter",
+    description: "Pilihan visual dirancang untuk menghidupkan cerita tanpa mengurangi keterbacaan.",
     icon: LayoutTemplate,
   },
   {
     title: "Responsif",
-    description: "Undangan tetap nyaman dibuka dari berbagai ukuran layar.",
+    description: "Undangan tetap nyaman dinikmati pada berbagai ukuran layar.",
     icon: Smartphone,
   },
   {
-    title: "Cepat Dibagikan",
-    description: "Publikasikan undangan lalu kirim link ke tamu.",
+    title: "Praktis Dibagikan",
+    description: "Bagikan undangan kepada orang-orang tersayang melalui satu tautan.",
     icon: Rocket,
   },
 ];
@@ -92,77 +92,77 @@ export const reasons: IconContent[] = [
 export const features: IconContent[] = [
   {
     title: "RSVP Online",
-    description: "Tamu bisa mengonfirmasi kehadiran dari halaman undangan.",
+    description: "Berikan cara yang praktis bagi tamu untuk mengonfirmasi kehadiran.",
     icon: UsersRound,
   },
   {
     title: "Buku Tamu",
-    description: "Ucapan dan doa tamu terkumpul dalam format digital.",
+    description: "Simpan ucapan serta doa hangat dari keluarga dan sahabat dalam satu tempat.",
     icon: MessageSquareHeart,
   },
   {
     title: "Galeri Foto",
-    description: "Tampilkan foto pilihan tanpa membuat halaman terasa penuh.",
+    description: "Hadirkan rangkaian foto pilihan dalam susunan yang elegan dan nyaman dilihat.",
     icon: Camera,
   },
   {
     title: "Love Story",
-    description: "Ceritakan perjalanan singkat dengan struktur yang rapi.",
+    description: "Bagikan perjalanan kalian melalui cerita yang hangat dan tersusun indah.",
     icon: HeartHandshake,
   },
   {
     title: "Google Maps",
-    description: "Bantu tamu membuka rute lokasi acara dengan mudah.",
+    description: "Bantu tamu menemukan lokasi acara dengan petunjuk yang mudah diakses.",
     icon: MapPinned,
   },
   {
     title: "Musik",
-    description: "Tambahkan musik bila dibutuhkan, tanpa mengganggu informasi utama.",
+    description: "Lengkapi suasana undangan dengan musik pilihan yang tetap nyaman bagi tamu.",
     icon: Music,
   },
 ];
 
 export const steps: IconContent[] = [
   {
-    title: "Pilih Template",
-    description: "Tentukan tampilan dasar yang sesuai dengan acara.",
+    title: "Pilih Desain",
+    description: "Temukan tampilan yang paling sesuai dengan karakter dan suasana acaramu.",
     icon: LayoutTemplate,
   },
   {
-    title: "Isi Data",
-    description: "Lengkapi informasi pasangan, acara, lokasi, dan fitur tamu.",
+    title: "Lengkapi Cerita",
+    description: "Siapkan informasi pasangan, detail acara, lokasi, foto, dan kisah pilihanmu.",
     icon: PenLine,
   },
   {
-    title: "Bagikan Link",
-    description: "Publikasikan undangan lalu kirimkan link ke tamu.",
+    title: "Bagikan Momen",
+    description: "Setelah siap, bagikan tautan undangan kepada keluarga dan sahabat tercinta.",
     icon: Link2,
   },
 ];
 
 export const faqs = [
   {
-    question: "Apakah bisa digunakan tanpa coding?",
+    question: "Apakah saya perlu memahami coding?",
     answer:
-      "Bisa. Kamu cukup memilih template, mengisi data, lalu membagikan link undangan.",
+      "Tidak. Kamu cukup memilih desain dan menyiapkan informasi acara. Tim SatuJanji akan membantu proses berikutnya.",
   },
   {
-    question: "Apakah tampilannya aman di mobile?",
+    question: "Apakah undangan nyaman dibuka melalui ponsel?",
     answer:
-      "Ya. Tampilan dibuat responsif agar informasi mudah dibaca dari HP, tablet, dan desktop.",
+      "Ya. Setiap template dirancang responsif agar tetap nyaman dibaca melalui ponsel, tablet, maupun desktop.",
   },
   {
     question: "Apakah tamu bisa RSVP online?",
-    answer: "Bisa. Tamu dapat mengonfirmasi kehadiran langsung dari halaman undangan.",
+    answer: "Ya. RSVP membantu tamu menyampaikan konfirmasi kehadiran langsung dari halaman undangan.",
   },
   {
     question: "Apakah bisa menambahkan lokasi?",
     answer:
-      "Bisa. Lokasi acara dapat diarahkan ke Google Maps agar tamu mudah membuka rute.",
+      "Ya. Lokasi acara dapat dihubungkan dengan Google Maps agar tamu lebih mudah menemukan rute.",
   },
   {
     question: "Bagaimana kalau belum tahu paket yang cocok?",
     answer:
-      "Kamu bisa konsultasi lewat WhatsApp. Admin akan bantu memilih paket sesuai kebutuhan acara.",
+      "Ceritakan kebutuhanmu melalui WhatsApp. Tim SatuJanji akan membantu memilih paket yang paling sesuai.",
   },
 ];

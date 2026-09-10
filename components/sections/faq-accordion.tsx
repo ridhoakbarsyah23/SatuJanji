@@ -19,7 +19,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
 
   return (
-    <div className="mx-auto mt-14 grid max-w-4xl gap-4">
+    <div className="mx-auto mt-12 grid max-w-4xl gap-3">
       {items.map((faq, index) => {
         const isActive = activeId === faq.id;
         const answerId = `faq-answer-${faq.id}`;
@@ -27,13 +27,13 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
         return (
           <Reveal key={faq.id} delay={index * 0.04}>
             <article
-              className={`overflow-hidden rounded-lg border bg-white shadow-soft transition-colors duration-300 ${
-                isActive ? "border-gold/30" : "border-gray-100"
+              className={`overflow-hidden rounded-[20px] border bg-white transition-all duration-300 ${
+                isActive ? "border-gold/30 shadow-[0_18px_50px_rgba(182,141,64,0.1)]" : "border-gray-100 shadow-sm hover:border-gold/20"
               }`}
             >
               <button
                 type="button"
-                className="focus-ring flex w-full items-center justify-between gap-4 p-5 text-left text-base font-semibold text-gray-950"
+                className="focus-ring flex min-h-16 w-full items-center justify-between gap-4 p-5 text-left text-sm font-semibold text-gray-950 sm:text-base"
                 aria-expanded={isActive}
                 aria-controls={answerId}
                 onClick={() => setActiveId(isActive ? "" : faq.id)}

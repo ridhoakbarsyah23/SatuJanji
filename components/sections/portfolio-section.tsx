@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { IconBadge } from "@/components/ui/icon-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { systemPreviewItems } from "@/lib/site-content";
@@ -10,9 +11,9 @@ export function PortfolioSection() {
     <section id="portfolio" className="py-20 sm:py-28">
       <div className="section-shell">
         <SectionHeading
-          eyebrow="Portfolio"
-          title="Gambaran sederhana sistem SatuJanji"
-          description="Fokus utama sistem adalah membantu pasangan mengubah data acara menjadi halaman undangan yang jelas, rapi, dan mudah dibagikan."
+          eyebrow="Pengalaman Undangan"
+          title="Setiap detail hadir dalam pengalaman yang utuh"
+          description="Dari informasi acara hingga konfirmasi tamu, setiap bagian disusun agar mudah ditemukan dan nyaman dinikmati."
         />
 
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
@@ -21,10 +22,8 @@ export function PortfolioSection() {
 
             return (
               <Reveal key={item.title} delay={index * 0.08}>
-                <article className="flex h-full flex-col rounded-lg border border-gray-100 bg-white p-7 shadow-soft">
-                  <div className="grid size-12 place-items-center rounded-lg bg-cream text-gold">
-                    <Icon className="size-6" aria-hidden="true" />
-                  </div>
+                <article className="group flex h-full flex-col rounded-[24px] border border-gray-100 bg-white p-6 shadow-[0_14px_45px_rgba(23,23,23,0.055)] transition duration-300 hover:-translate-y-1 hover:border-gold/25 hover:shadow-[0_24px_65px_rgba(23,23,23,0.09)] sm:p-7">
+                  <IconBadge icon={Icon} className="transition group-hover:-translate-y-0.5" />
                   <h3 className="mt-6 text-xl font-semibold text-gray-950">
                     {item.title}
                   </h3>
@@ -40,14 +39,14 @@ export function PortfolioSection() {
         <Reveal className="mx-auto mt-8 flex max-w-xl justify-center">
           <Button
             href={createWhatsAppLink(
-              "Halo admin SatuJanji, saya ingin memahami cara kerja sistem undangan digital SatuJanji.",
+              "Halo tim SatuJanji, saya ingin mengetahui proses pembuatan undangan digital.",
             )}
             target="_blank"
             rel="noreferrer"
             variant="secondary"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
-            Tanya Cara Kerja
+            Konsultasikan Undangan
           </Button>
         </Reveal>
       </div>

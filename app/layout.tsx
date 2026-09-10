@@ -7,11 +7,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://satujanji.id"),
   title: {
-    default: "SatuJanji - Undangan Pernikahan Digital Elegan",
+    default: "SatuJanji - Undangan Digital untuk Cerita Istimewamu",
     template: "%s | SatuJanji",
   },
   description:
-    "Buat website undangan pernikahan digital yang elegan, modern, dan mudah dibagikan tanpa perlu coding.",
+    "Wujudkan undangan pernikahan digital yang personal, elegan, dan nyaman dibagikan kepada orang-orang tersayang.",
   keywords: [
     "undangan digital",
     "undangan pernikahan digital",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://satujanji.id",
     siteName: "SatuJanji",
-    title: "SatuJanji - Undangan Pernikahan Digital Elegan",
+    title: "SatuJanji - Undangan Digital untuk Cerita Istimewamu",
     description:
-      "Buat website undangan pernikahan digital yang elegan, modern, dan mudah dibagikan tanpa perlu coding.",
+      "Wujudkan undangan pernikahan digital yang personal, elegan, dan nyaman dibagikan kepada orang-orang tersayang.",
     images: [
       {
         url: "/og-card.svg",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SatuJanji - Undangan Pernikahan Digital Elegan",
+    title: "SatuJanji - Undangan Digital untuk Cerita Istimewamu",
     description:
-      "Buat website undangan pernikahan digital yang elegan, modern, dan mudah dibagikan tanpa perlu coding.",
+      "Wujudkan undangan pernikahan digital yang personal, elegan, dan nyaman dibagikan kepada orang-orang tersayang.",
     images: ["/og-card.svg"],
   },
   icons: {

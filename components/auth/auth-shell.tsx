@@ -13,9 +13,9 @@ type AuthShellProps = {
 };
 
 const benefits = [
-  "Kelola data undangan dari satu tempat",
-  "Pantau RSVP dan ucapan tamu",
-  "Konsultasi cepat dengan admin SatuJanji",
+  "Pilihan desain yang dapat disesuaikan",
+  "Informasi acara tersusun dengan rapi",
+  "Pendampingan personal dari tim SatuJanji",
 ];
 
 export function AuthShell({
@@ -26,12 +26,14 @@ export function AuthShell({
   footer,
 }: AuthShellProps) {
   const helpLink = createWhatsAppLink(
-    "Halo admin SatuJanji, saya butuh bantuan untuk akses akun SatuJanji.",
+    "Halo tim SatuJanji, saya memerlukan bantuan terkait akses pengelola.",
   );
 
   return (
-    <main className="min-h-[calc(100svh-5rem)] bg-cream">
-      <div className="section-shell grid min-h-[calc(100svh-5rem)] items-center gap-10 py-8 lg:grid-cols-[0.95fr_1.05fr] lg:py-12">
+    <main className="auth-surface relative min-h-[calc(100svh-5rem)] overflow-hidden bg-cream">
+      <div className="auth-orb auth-orb-left" aria-hidden="true" />
+      <div className="auth-orb auth-orb-right" aria-hidden="true" />
+      <div className="section-shell relative grid min-h-[calc(100svh-5rem)] items-center gap-10 py-6 sm:py-10 lg:grid-cols-[0.95fr_1.05fr] lg:py-12">
         <section className="hidden lg:block">
           <Link
             href="/"
@@ -44,14 +46,14 @@ export function AuthShell({
           <div className="mt-16 max-w-xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-white px-4 py-2 text-sm font-semibold text-gold shadow-sm">
               <Sparkles className="size-4" aria-hidden="true" />
-              SatuJanji Dashboard
+              SatuJanji Wedding Invitation
             </span>
             <h1 className="text-balance-safe mt-7 font-serif text-5xl font-semibold leading-tight text-gray-950 xl:text-6xl">
-              Undangan digital yang mudah dikelola.
+              Setiap janji layak dirayakan dengan indah.
             </h1>
             <p className="mt-6 text-base leading-8 text-gray-600">
-              Masuk ke akun untuk melengkapi data acara, memilih template,
-              mengatur RSVP, dan menyiapkan undangan sebelum dibagikan.
+              Wujudkan undangan digital yang terasa personal, mudah dibagikan,
+              dan tetap nyaman dinikmati oleh setiap tamu.
             </p>
           </div>
 
@@ -81,7 +83,7 @@ export function AuthShell({
             </span>
           </div>
 
-          <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-soft sm:p-8">
+          <div className="auth-card rounded-[28px] border border-white/80 bg-white/95 p-5 shadow-[0_30px_90px_rgba(70,50,25,0.12)] backdrop-blur sm:p-8 lg:p-9">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">
                 {eyebrow}
@@ -107,7 +109,7 @@ export function AuthShell({
             className="mt-5 w-full"
           >
             <MessageCircle className="size-4" aria-hidden="true" />
-            Butuh bantuan admin?
+            Konsultasi dengan tim kami
           </Button>
         </section>
       </div>

@@ -6,12 +6,12 @@ export function createWhatsAppLink(message: string) {
 
 export function createPackageInquiryLink(packageName: string) {
   return createWhatsAppLink(
-    `Halo admin SatuJanji, saya ingin tanya paket ${packageName} untuk undangan pernikahan digital. Bisa dibantu?`,
+    `Halo tim SatuJanji, saya tertarik dengan paket ${packageName} untuk undangan pernikahan digital. Saya ingin berkonsultasi lebih lanjut.`,
   );
 }
 
 export function createTemplateInquiryLink(templateName: string) {
   return createWhatsAppLink(
-    `Halo admin SatuJanji, saya tertarik dengan template ${templateName}. Bisa dibantu untuk konsultasi?`,
+    `Halo tim SatuJanji, saya tertarik dengan template ${templateName}. Saya ingin berkonsultasi mengenai penyesuaian desainnya.`,
   );
 }
