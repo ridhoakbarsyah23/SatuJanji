@@ -9,9 +9,50 @@ export type Template = {
   accent: string;
   icon: LucideIcon;
   tags: string[];
+  preview?: boolean;
 };
 
 export const templates: Template[] = [
+  {
+    name: "Sekaring Jawi",
+    slug: "sekaring-jawi",
+    theme: "Javanese Heritage",
+    description: "Nuansa pendopo yang teduh dengan ritme kawung, warna soga, dan sentuhan emas.",
+    accent: "#8A3F28",
+    icon: Flower2,
+    tags: ["Jawa", "Kawung", "Soga"],
+    preview: true,
+  },
+  {
+    name: "Ranah Pusaka",
+    slug: "ranah-pusaka",
+    theme: "Minang Songket",
+    description: "Komposisi marun dan emas yang terinspirasi oleh kemegahan songket Minangkabau.",
+    accent: "#8F1F24",
+    icon: Gem,
+    tags: ["Sumatera", "Songket", "Marun"],
+    preview: true,
+  },
+  {
+    name: "Rimba Borneo",
+    slug: "rimba-borneo",
+    theme: "Borneo Heritage",
+    description: "Palet alam dengan aksen geometris Dayak yang hangat, berani, dan kontemporer.",
+    accent: "#14392C",
+    icon: Leaf,
+    tags: ["Kalimantan", "Dayak", "Alam"],
+    preview: true,
+  },
+  {
+    name: "Langkana Sulapa",
+    slug: "langkana-sulapa",
+    theme: "Sulawesi Heritage",
+    description: "Tata visual berlandaskan filosofi Sulapa Eppa dengan warna tanah dan tembaga.",
+    accent: "#A43C2F",
+    icon: Stars,
+    tags: ["Sulawesi", "Sulapa Eppa", "Tembaga"],
+    preview: true,
+  },
   {
     name: "Aira",
     slug: "aira",
